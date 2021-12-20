@@ -2544,6 +2544,321 @@ function loopAnArrayOfObjects(arrayOfObjects) {
 }
 ```
 
+#### Loop over an object of arrays
 
+We are going to complete a function that takes one parameter, a object of arrays, and logs all of its values (log each value in first inner array, one at a time, then second inner array, and so on...) to the console. Your function should use a for loop nested inside of a for-in loop to log each value from all inner arrays, then return nothing. Below is an example of the code running, assuming that you will have completed the described function: `loopAnObjectOfArrays`.
 
-  
+```javascript
+loopAnObjectOfArrays({ first: [1, 2, 5], second: [6, 14, 21] });
+// console output:
+  // 1
+  // 2
+  // 5
+  // 6
+  // 14
+  // 21
+
+loopAnObjectOfArrays({ third: [false, false], fourth: ['runs'], ninth: ['q', 'l', 'z'] });
+// console output:
+  // false
+  // false
+  // runs
+  // q
+  // l
+  // z
+```
+
+```javascript
+function loopAnObjectOfArrays(objectOfArrays) {
+  // create a loop which iterates over the input object
+    // create an inner loop which iterates over current inner array
+      // log current value to the console
+  for (var key in objectOfArrays) {
+    var innerArray = objectOfArrays[key];
+    for (var i = 0;  i < innerArray.length ; i++) {
+        console.log(innerArray[i]);
+    }
+  }
+}
+```
+
+#### List all combinations of two arrays
+
+We are going to complete a function that takes two parameters, both arrays, and logs all possible combinations of elements separated by a space (see example for details...) to the console. Your function should use a nested for loop to log all combinations of the two arrays, then return nothing. Below is an example of the code running, assuming that you will have completed the described function: `generateCombinations`.
+
+```javascript
+generateCombinations(['a', 'b', 'c'], ['d', 'e', 'f']);
+// console output:
+  // a d
+  // a e
+  // a f
+  // b d
+  // b e
+  // b f
+  // c d
+  // c e
+  // c f
+
+generateCombinations([1, 2], ['buckle', 'my', 'shoe']);
+// console output:
+  // 1 buckle
+  // 1 my
+  // 1 shoe
+  // 2 buckle
+  // 2 my
+  // 2 shoe
+```
+
+```javascript
+function generateCombinations(array1, array2) {
+  // create a loop which iterates over the first array
+    // create an inner loop which iterates over the second array
+      // log current element of first array and current element of second array to the console with space in between
+  for ( var i = 0 ; i < array1.length ; i++) {
+    for ( var j = 0 ; j < array2.length ; j++) {
+        console.log(array1[i] + " " + array2[j]);
+    }
+  }
+}
+```
+
+## Functions
+
+### Accumulator Pattern
+
+#### filterOddElements
+
+Write a function called "filterOddElements".
+
+Given an array of numbers, "filterOddElements" returns an array containing only the odd numbers of the given array. If the input array contains no odd numbered elements, your function should return an empty array.
+
+```javascript
+var output = filterOddElements([1, 2, 3, 4, 5]);
+console.log(output); // --> [1, 3, 5]
+```
+
+```javascript
+function filterOddElements(numbers) {
+    if (numbers.length === 0) {
+        return [];
+    }
+    var oddNumbers=[];
+    for ( var i = 0 ; i < numbers.length; i++) {
+        if (numbers[i] % 2 === 1) {
+            oddNumbers.push(numbers[i]);
+        }
+    }
+    return oddNumbers;
+}
+```
+
+#### computeSumOfAllElements
+
+Write a function called "computeSumOfAllElements".
+
+Given an array of numbers, "computeSumOfAllElements" returns the sum of all the elements in the given array. If input array is empty, your function should return 0.
+
+```javascript
+var result1 = computeSumOfAllElements([1, 2, 3]);
+console.log('should log 6:', result1);
+
+var result2 = computeSumOfAllElements([]);
+console.log('should log 0:', result2);
+```
+
+```javascript
+function computeSumOfAllElements(numbers) {
+    if (numbers.length === 0) {
+        return 0;
+    }
+    var sum = 0;
+    for (var i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    return sum;
+}
+```
+
+#### Generate Average of Elements
+
+Write a function called "computeAverageOfNumbers".
+
+Given an array of numbers, "computeAverageOfNumbers" returns their average. If input array is empty, your function should return 0.
+
+```javascript
+var input1 = [1,2,3,4,5];
+var result1 = computeAverageOfNumbers(input1);
+console.log('should log 3:', result1);
+
+var input2 = [];
+var result2 = computeAverageOfNumbers(input2);
+console.log('should log 0:', result2);
+```
+
+```javascript
+function computeAverageOfNumbers(numbers) {
+    if(numbers.length === 0) {
+        return 0;
+    }
+    var sum = 0
+    for (var i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+    }
+    return sum / numbers.length;
+}
+```
+
+### Scope Introduction
+
+#### Find a value in an object Debugging
+
+We are going to debug a function that takes in an object, and a target value. This function will iterate over the object's values, and attempt to locate the target value. If the value is found, the function should return the name of the key where the value in question is located, and if not, the function should return -1. Below is an example of the code running, assuming that you will have debugged the described function: `keyOfObjectValue`:
+
+```javascript
+var result1 = keyOfObjectValue({cucumbers: 14, carrots: 20, peas: 400}, 20);
+console.log('should log "carrots":', result1);
+
+var result2 = keyOfObjectValue({name: 'Bruce Wayne', hero: 'Batman', city: 'Gotham'}, 'Superman');
+console.log('should log -1:', result2);
+```
+
+```javascript
+function keyOfObjectValue(object, target) {
+  for (var key in object) {
+    if (object[key] === target) {
+      return key;
+    } 
+  }
+  return - 1;
+}
+```
+
+#### Count Elements Above 40 Debugging
+
+We are going to debug a function that takes in an array of numbers. This function will iterate over the array's number elements, and return a count representing the number of elements whose value is greater than 40. If there are no values above 40, then the function should return 0. Below is an example of the code running, assuming that you will have debugged the described function: `getElementsAbove40`:
+
+```javascript
+var result1 = getElementsAbove40([1, 42, 5, 314, 2, 89]);
+console.log('should log 3:', result1);
+
+var result2 = getElementsAbove40([1, 4, 3, 2, 6]);
+console.log('should log 0:', result2);
+````
+
+```javascript
+function getElementsAbove40(numbers) {
+  var count = 0;
+  for (var i = 0; i < numbers.length; i++) {
+    if (numbers[i] > 40) {
+      count++;
+    }
+  }
+  return count;
+}
+```
+
+#### Create a Sentence Debugging
+
+We are going to debug a function that takes in an array of strings, representing words in a sentence. This function should iterate over the input array and should create, and return, a resulting sentence from the words therein. Below is an example of the code running, assuming that you will have debugged the described function: `createSentence`:
+
+```javascript
+var result1 = createSentence(['I', 'am', 'worth', 'it']);
+console.log('should log "I am worth it.":', result1);
+
+var result2 = createSentence(['My', 'problems', 'matter']);
+console.log('should log "My problems matter.":', result2);
+```
+
+```javascript
+function createSentence(words) {
+  var sentence = "";
+  for (var i = 0; i < words.length; i++) {
+    // hint: does this line need to happen every iteration?
+    if (i === words.length - 1){
+        sentence += words[i] + '.';
+    } else {
+      sentence += words[i] + ' ';  
+    }
+  }
+ return sentence;
+}
+```
+
+### Data Modeling
+
+#### Use an object to count words in a sentence
+
+Write a function called "countWords".
+
+Given a string (words separated by spaces), "countWords" returns an object where each key is a word in the given string, with its value being how many times that word appeared in the given string. If given an empty string, your function should return an empty object.
+
+```javascript
+var result1 = countWords('ask a bunch get a bunch');
+console.log('should log "{ask: 1, a: 2, bunch: 2, get: 1}":', result1);
+
+var result2 = countWords('');
+console.log('should log "{}":', result2);
+```
+
+```javascript
+function countWords(stringOfWords) {
+ //if input is empty obj
+ if ( stringOfWords === '' ) {
+   // return empty obj
+   return {};
+}
+
+  // create result count obj
+  var counts = {};
+
+  //split the inout string into an array of words
+  var words = stringOfWords.split(' ');
+    //iterate over the array of words
+    for ( var i = 0; i < words.length; i++) {
+      var currentWord = words[i];
+      //check if current word is not in result obj
+      if ( counts[currentWord] === undefined) {
+    //instantiate current word in obj with value of 1
+      counts[currentWord] = 1;
+    //otherwise
+    } else {
+      // increment value of current word in obj by 1
+      counts[currentWord]++;
+    }
+  }
+// return the result count obj
+return counts;
+}
+```
+
+#### Use an object to count letters in a word
+
+Write a function called "countAllCharacters".
+
+Given a string of characters, "countAllCharacters" returns an object where each key is a character in the given string, with its value being how many times that character appeared in the given string. If given an empty string, your function should return an empty object.
+
+```javascript
+var result1 = countAllCharacters('banana');
+console.log('should log "{b: 1, a: 3, n: 2}":', result1);
+
+var result2 = countAllCharacters('');
+console.log('should log "{}":', result2);
+```
+
+```javascript
+function countAllCharacters(string) {
+    if (string == '') {
+        return {};
+    }
+    var counts = {};
+    for ( var i = 0; i < string.length; i++) {
+        if (counts[string[i]] === undefined ) {
+            counts[string[i]] = 1;
+        } else {
+            counts[string[i]]++;
+        }
+    }
+    return counts;
+}
+```
+
