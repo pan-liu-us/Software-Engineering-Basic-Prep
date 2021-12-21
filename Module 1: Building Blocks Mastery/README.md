@@ -2866,21 +2866,1321 @@ function filterEvenElements(arr) {
     return evenElements;
 }
 ```
+            
+#### getLengthOfShortestElement
+
+Write a function called "getLengthOfShortestElement".
+
+Given an array, "getLengthOfShortestElement" returns the length of the shortest string in the given array.
+
+Notes:
+
+- It should return 0 if the array is empty.
+
+```javascript
+var output = getLengthOfShortestElement(['one', 'two', 'three']);
+console.log(output); // --> 3
+···
+
+```javascript
+function getLengthOfShortestElement(arr) {
+    if (arr.length === 0){
+        return 0;
+    }
+    var shortest = arr[0];
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i].length < shortest.length) {
+            shortest = arr[i];
+        }
+    }
+    return shortest.length;
+}
+···
+
+#### getLongestElement
+
+Write a function called "getLongestElement".
+
+Given an array, "getLongestElement" returns the longest string in the given array.
+
+Notes:
+
+- If there are ties, it returns the first element to appear.
+- If the array is empty, it should return an empty string.
+
+```javascript
+var output = getLongestElement(['one', 'two', 'three']);
+console.log(output); // --> 'three'
+```
+
+```javascript
+function getLongestElement(arr) {
+    if (arr.length === 0) {
+        return "";
+    }
+    var longest = arr[0];
+    for (var i = 1; i<arr.length; i++){
+        if (arr[i].length > longest.length){
+           longest = arr[i];
+        }
+    }
+    return longest;
+}
+```
+
+### Array Methods 12
+
+#### findSmallestElement
+
+Write a function called "findSmallestElement".
+
+Given an array of numbers, "findSmallestElement" returns the smallest number within the given array.
+
+Notes:
+
+- If the given array is empty, it should return 0.
+
+```javascript
+var output = findSmallestElement([4, 1, 9, 10]);
+console.log(output); // --> 1
+```
+
+```javascript
+function findSmallestElement(arr) {
+    if (arr.length === 0){
+        return 0;
+    }
+    var smallest = arr[0];
+    for (var i = 1; i<arr.length; i++){
+        if (arr[i] < smallest) {
+            smallest = arr[i];
+        }
+    }
+    return smallest;
+}
+```
+
+#### findShortestElement
+
+Write a function called "findShortestElement".
+
+Given an array, "findShortestElement" returns the shortest string within the given array.
+
+Notes:
+
+- If there are ties, it should return the first element to appear.
+- If the given array is empty, it should return an empty string.
 
 
+var output = findShortestElement(['a', 'two', 'three']);
+console.log(output); // --> 'a'
+
+```javascript
+function findShortestElement(arr) {
+    if (arr.length === 0) {
+        return "";
+    }
+    var shortest = arr[0];
+    for (var i = 1; i<arr.length; i++) {
+        if (arr[i].length < shortest.length) {
+            shortest = arr[i];
+        }
+    }
+    return shortest;
+}
+```
+
+### Array Methods 13
+
+#### getLargestElement
+
+Write a function called "getLargestElement".
+
+Given an array, "getLargestElement" returns the largest number in the given array.
+
+Notes:
+
+- It should return 0 if the array is empty.
+
+```javascript
+var output = getLargestElement([5, 2, 8, 3]);
+console.log(output); // --> 8;
+····
+
+```javascript
+function getLargestElement(arr) {
+    if (arr.length === 0) {
+        return 0;
+    }
+    var largest = arr[0];
+    for (var i = 1; i<arr.length; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+    return largest;
+}
+```
+
+#### computeSumOfAllElements
+
+Write a function called "computeSumOfAllElements".
+
+Given an array of numbers, "computeSumOfAllElements" returns the sum of all the elements in the given array.
+
+```javascript
+var output = computeSumOfAllElements([1, 2, 3])
+console.log(output); // --> 6
+```
+
+```javascript
+function computeSumOfAllElements(arr) {
+    var sum = 0;
+    for (var i = 0; i<arr.length; i++){
+        sum += arr[i];
+    }
+    return sum;
+}
+```
+
+### Array Methods 14
+
+#### joinArraysOfArrays
+Submitted on 11/12/2021
+Write a function called "joinArrayOfArrays".
+
+Given an array of arrays, "joinArrayOfArrays" returns a single array containing the elements of the nested arrays.
+
+```javascript
+var output = joinArrayOfArrays([[1, 4], [true, false], ['x', 'y']]);
+console.log(output); // --> [1, 4, true, false, 'x', 'y']
+```
+
+You should be familiar with the "concat" method for this problem.
+
+```javascript
+function joinArrayOfArrays(arr) {
+    var result = [];
+    for(var i = 0;i <arr.length; i++){
+        result = result.concat(arr[i]);
+    }
+    return result;
+}
+```
+
+### Array Methods 15
+
+#### findShortestWordAmongMixedElements
+
+Write a function called "findShortestWordAmongMixedElements".
+
+Given an array, "findShortestWordAmongMixedElements" returns the shortest string within the given array.
+
+Notes:
+
+- If there are ties, it should return the first element to appear in the given array.
+- Expect the given array to have values other than strings.
+- If the given array is empty, it should return an empty string.
+- If the given array contains no strings, it should return an empty string.
+
+```javascript
+var output = findShortestWordAmongMixedElements([4, 'two', 2, 'three']);
+console.log(output); // --> 'two'
+```
+
+```javascript
+function findShortestWordAmongMixedElements(arr) {
+    if (arr.length === 0) {
+        return "";
+    }
+    var strings = [];
+    for (var i = 0; i<arr.length; i++) {
+        if (typeof arr[i] === "string") {
+            strings.push(arr[i]);
+        }
+    }
+    if (strings.length === 0) {
+        return "";
+    }
+  
+    var shortest = strings[0];
+  
+    for (var i = 1; i<strings.length; i++) {
+        if (strings[i].length < shortest.length) {
+            shortest = strings[i];
+        }
+    }
+    return shortest;
+}
+```
+
+#### findSmallestNumberAmongMixedElements
+
+Write a function called "findSmallestNumberAmongMixedElements".
+
+Given an array of mixed elements, "findSmallestNumberAmongMixedElements" returns the smallest number within the given array.
+
+Notes:
+
+- If the given array is empty, it should return 0.
+- If the array contains no numbers, it should return 0.
 
 
+var output = findSmallestNumberAmongMixedElements([4, 'lincoln', 9, 'octopus']);
+console.log(output); // --> 4
 
+```javascript
+function findSmallestNumberAmongMixedElements(arr) {
+    if (arr.length === 0) {
+        return 0;
+    }
+    var nums = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === "number") {
+            nums.push(arr[i]);
+        }
+    }
+    if (nums.length === 0) {
+        return 0;
+    }
+    var smallest = nums[0];
+    for (var i = 1; i<nums.length; i++) {
+        if (nums[i] < smallest) {
+            smallest = nums[i];
+        }
+    } 
+    return smallest;
+}
+```
 
+### Array Methods 16
 
+#### getLongestWordOfMixedElements
 
+Write a function called "getLongestWordOfMixedElements".
 
+Given an array of mixed types, "getLongestWordOfMixedElements" returns the longest string in the given array.
 
+Notes:
+
+- If the array is empty, it should return an empty string ("").
+- If the array contains no strings; it should return an empty string.
+
+```javascript
+var output = getLongestWordOfMixedElements([3, 'word', 5, 'up', 3, 1]);
+console.log(output); // --> 'word'
+```
+
+```javascript
+function getLongestWordOfMixedElements(arr) {
+    if (arr.length === 0) {
+        return "";
+    }
+    var words = [];
+    for (var i = 0; i < arr.length; i++) {
+       if (typeof arr[i] === "string") {
+           words.push(arr[i]);
+       }
+   }
+    if (words.length === 0) {
+       return "";
+    }
+    var longest = words[0];
+    for (var j = 0; j < words.length; j++) {
+        if (words[j].length > longest.length) {
+            longest = words[j];
+        }
+    }
+    return longest;
+}
+```
+
+#### getLargestNumberAmongMixedElements
+
+Write a function called "getLargestNumberAmongMixedElements".
+
+Given any array, "getLargestNumberAmongMixedElements" returns the largest number in the given array.
+
+Notes:
+
+- The array might contain values of a type other than numbers.
+- If the array is empty, it should return 0.
+- If the array contains no numbers, it should return 0.
+
+```javascript
+var output = getLargestNumberAmongMixedElements([3, 'word', 5, 'up', 3, 1]);
+console.log(output); // --> 5
+```
+
+```javascript
+function getLargestNumberAmongMixedElements(arr) {
+    if (arr.length === 0) {
+        return 0;
+    }
+    var nums = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === "number") {
+            nums.push(arr[i]);
+        }
+    }
+    if (nums.length === 0) {
+        return 0;
+    }
+    var largest = nums[0];
+    for (var j = 0; j < nums.length; j++) {
+        if (nums[j] > largest) {
+            largest = nums[j];
+        }
+    }
+    return largest;
+}
+```
 
 ## Array String Methods 1 - 2
+
+### Array String Methods 1
+
+#### getAllLetters
+
+Write a function called "getAllLetters".
+
+Given a word, "getAllLetters" returns an array containing every character in the word.
+
+Notes:
+
+If given an empty string, it should return an empty array.
+You should be familiar with the 'split' method.
+
+```javascript
+var output = getAllLetters('Radagast');
+console.log(output); // --> ['R', 'a', 'd', 'a', 'g', 'a', 's', 't']
+```
+
+```javascript
+function getAllLetters(str) {
+    if (str === "") {
+        return str = [];
+    }
+    var splitted = str.split("");
+    return splitted;
+}
+```
+
+#### getAllWords
+
+Write a function called "getAllWords".
+
+Given a sentence, "getAllWords" returns an array containing every word in the sentence.
+
+Notes:
+
+- If given an empty string, it should return an empty array.
+- You should be familiar with the 'split' method.
+
+```javascript
+var output = getAllWords('Radagast the Brown');
+console.log(output); // --> ['Radagast', 'the', 'Brown']
+```
+
+```javascript
+function getAllWords(str) {
+    if (str === "") {
+        return str = [];
+    }
+    var splitted = str.split(" ");
+    return splitted;
+}
+```
+
+### Array String Methods 2
+
+#### convertDoubleSpaceToSingle
+
+Write a function called "convertDoubleSpaceToSingle".
+
+Given a string, "convertDoubleSpaceToSingle" returns the passed in string, with all the double spaces converted to single spaces.
+
+```javascript
+var output = convertDoubleSpaceToSingle("string  with  double  spaces");
+console.log(output); // --> "string with double spaces"
+```
+
+Notes:
+
+- In order to do this problem, you should be familiar with "String.split", and "Array.join".
+
+```javascript
+function convertDoubleSpaceToSingle(str) {
+    var split = str.split("  ");
+    var joined = split.join(" ");
+    return joined;
+}
+```
+
 ## Advanced 1 - 8
+
+### Advanced 1
+
+#### countWords
+
+Write a function called "countWords".
+
+Given a string, "countWords" returns an object where each key is a word in the given string, with its value being how many times that word appeared in the given string.
+
+Notes:
+
+- If given an empty string, it should return an empty object.
+
+```javascript
+var output = countWords('ask a bunch get a bunch');
+console.log(output); // --> {ask: 1, a: 2, bunch: 2, get: 1}
+```
+
+```javascript
+function countWords(str) {
+    if (str === "") {
+        return {};
+    }
+    var result = {};
+    var words = str.split(" ");
+    for (var i = 0 ; i < words.length ; i++) {
+        if (result[words[i]] === undefined) {
+            result[words[i]] = 1;
+        } else { 
+            result[words[i]] += 1;
+        }
+    }
+    return result;
+}
+```
+
+### Advanced 2
+
+#### extend
+
+Write a function called "extend".
+
+Given two objects, "extend" adds properties from the 2nd object to the 1st object.
+
+Notes:
+
+- Add any keys that are not in the 1st object.
+- If the 1st object already has a given key, ignore it (do not overwrite the property value).
+- Do not modify the 2nd object at all.
+
+```javascript
+var obj1 = {
+  a: 1,
+  b: 2
+};
+var obj2 = {
+  b: 4,
+  c: 3
+};
+
+extend(obj1, obj2);
+
+console.log(obj1); // --> {a: 1, b: 2, c: 3}
+console.log(obj2); // --> {b: 4, c: 3}
+```
+
+```javascript
+function extend(obj1, obj2) {
+    for (var keyFromObj2 in obj2) {
+        if (obj1[keyFromObj2] === undefined) {
+            obj1[keyFromObj2] = obj2[keyFromObj2];
+        }  
+    }
+}
+```
+
+### Advanced 3
+
+#### select
+
+Write a function called "select".
+
+Given an array and an object, "select" returns a new object whose properties are those in the given object AND whose keys are present in the given array.
+
+Notes:
+
+- If keys are present in the given array, but are not in the given object, it should ignore them.
+- It does not modify the passed in object.
+
+```javascript
+var arr = ['a', 'c', 'e'];
+var obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4
+};
+var output = select(arr, obj);
+console.log(output); // --> { a: 1, c: 3 }
+```
+
+```javascript
+function select(arr, obj) {
+    var result = {};
+    for (var i = 0; i<arr.length; i++) {
+        if (obj[arr[i]] !== undefined) {
+            result[arr[i]] = obj[arr[i]];
+        }
+    }
+    return result;
+}
+```
+
+### Advanced 4
+
+#### countAllCharacters
+
+Write a function called "countAllCharacters".
+
+Given a string, "countAllCharacters" returns an object where each key is a character in the given string. The value of each key should be how many times each character appeared in the given string.
+
+Notes:
+
+- If given an empty string, countAllCharacters should return an empty object.
+
+```javascript
+var output = countAllCharacters('banana');
+console.log(output); // --> {b: 1, a: 3, n: 2}
+```
+
+```javascript
+function countAllCharacters(str) {
+    var result = {};
+    for (var i = 0; i < str.length; i++) {
+        if (result[str[i]] === undefined) {
+            result[str[i]] = 1;
+        } else {
+            result[str[i]] += 1;
+        }
+    }
+    return result;
+}
+```
+
+### Advanced 5
+
+#### sumDigits
+
+Write a function called "sumDigits".
+
+Given a number, "sumDigits" returns the sum of all its digits.
+
+```javascript
+var output = sumDigits(1148);
+console.log(output); // --> 14
+```
+
+If the number is negative, the first digit should count as negative.
+
+```javascript
+var output = sumDigits(-316);
+console.log(output); // --> 4
+```
+
+Notes:
+
+- In order to use some of the methods that will be most helpful to you, you will most likely want to do some string to number conversion and vice versa.
+- Be sure to familiarize yourself with the "toString" method, as well as the "Number" function.
+
+```javascript
+function sumDigits(num) {
+    var inputIsNegative = false;
+    if (num < 0) {
+        num = Math.abs(num);
+        inputIsNegative = true;
+    }
+    var total = 0;
+    var numString = num.toString();
+    var firstValue = Number(numString[0]);
+    for(var i=0; i < numString.length; i++) {
+        total += Number(numString[i]);
+    }
+    if (inputIsNegative) {
+        total = total - (2 * firstValue);
+        return total;
+    } else {
+        return total;
+    }
+}
+```
+
+### Advanced 6
+
+#### modulo
+
+Write a function called "modulo".
+
+Given 2 numbers, "modulo" returns the remainder after dividing num1 by num2.
+
+It should behave as described in the canonical documentation (MDN) for the JavaScript remainder operator: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Remainder_()
+
+Notes:
+
+- Do NOT use the actual built-in modulo (aka "remainder") operator (%) in your implementation.
+- 0 % ANYNUMBER = 0.
+- ANYNUMBER % 0 = NaN.
+- If either operand is NaN, then the result is NaN.
+- Modulo always returns the sign of the first number, even if the remainder is 0.
+
+```javascript
+var output = modulo(25, 4);
+console.log(output); // --> 1
+```
+
+```javascript
+function modulo(num1, num2) {
+    if (num1 === 0) {
+        return 0;
+    }
+    if (num2 === 0) {
+        return NaN;
+    }
+    if (isNaN(num2) || isNaN(num1)) {
+        return NaN;
+    }
+    // create a resultIsPositive boolean flog
+    var resultIsPositive = true;
+    if (num1 < 0) {
+        resultIsPositive = false;  
+    }
+    // make both num1 and num2 positive versions
+    num1 = Math.abs(num1);
+    num2 = Math.abs(num2);
+    // reassign num1 ri be num1 - num2, until num1 < num2
+    while (num1 >= num2) {
+        num1 = num1 - num2;
+    }
+    // check if result is positive
+    if (resultIsPositive) {
+        return num1;
+    } else {
+        return -num1;
+    }
+}
+```
+
+### Advanced 7
+
+#### isOddWithoutModulo
+
+Write a function called "isOddWithoutModulo".
+
+Given a number, "isOddWithoutModulo" returns whether the passed in number is odd.
+
+Note:
+
+- It does so without using the modulo operator (%).
+- It should work for negative numbers and zero.
+
+```javascript
+var output = isOddWithoutModulo(17);
+console.log(output); // --> true
+```
+
+```javascript
+function isOddWithoutModulo(num) {
+    if (num === 0) {
+        return false;
+    }
+    num = Math.abs(num);
+    while (num >= 2) {
+        num = num - 2;
+    }
+    if (num === 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+```
+
+### Advanced 8
+
+#### isEvenWithoutModulo
+
+Write a function called "isEvenWithoutModulo".
+
+Given a number, "isEvenWithoutModulo" returns whether it is even.
+
+Notes:
+
+- It does so without using the modulo operator (%).
+- It should work for negative numbers and zero.
+
+```javascript
+var output = isEvenWithoutModulo(8);
+console.log(output); // --> true
+```
+
+```javascript
+function isEvenWithoutModulo(num) {
+    if (num === 0) {
+        return true;
+    }
+    num = Math.abs(num);
+    while (num >= 2) {
+        num -= 2;
+    }
+    if (num === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+```
+
 ## Interation 1 - 6
+
+### Interation 1
+
+#### getIndexOf
+
+Write a function called "getIndexOf".
+
+Given a character and a string, "getIndexOf" returns the first position of the given character in the given string.
+
+Notes:
+
+- Strings are zero indexed, meaning the first character in a string is at position 0.
+- When a string contains more than one occurrence of a character, it should return the index of its first occurrence.
+- If the character does not exist in the string, it should return -1.
+- Do not use the native indexOf function in your implementation.
+
+```javascript
+var output = getIndexOf('a', 'I am a hacker');
+console.log(output); // --> 2
+```
+
+```javascript
+function getIndexOf(char, str) {
+    for ( var i = 0; i < str.length; i++){
+        if (str[i] === char) {
+            return i;
+        }
+    }
+    return -1;
+}
+```
+
+### Iteration 2
+
+#### getStringLength
+
+Write a function called "getStringLength".
+
+Given a string, "getStringLength" returns the length of the given string.
+
+Notes:
+
+- Do NOT use any native 'length' methods.
+- You might consider using 'substring' or 'slice' as alternatives.
+
+```javascript
+var output = getStringLength('hello');
+console.log(output); // --> 5
+```
+
+
+### Iteration 3
+
+#### computeSummationToN
+
+Write a function called "computeSummationToN".
+
+Given a number, "computeSummationToN" returns the sum of sequential numbers leading up to the given number, beginning at 0.
+
+Notes:
+
+- If n = 4, it should calculate the sum of 1 + 2 + 3 + 4, and return 10.
+
+```javascript
+var output = computeSummationToN(6);
+console.log(output); // --> 21
+```
+
+```javascript
+function computeSummationToN(n) {
+   var sum = 0;
+   for (var i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return sum;
+}
+```
+
+### Iteration 4
+
+#### computeFactorialOfN
+
+Write a function called "computeFactorialOfN".
+
+Given a natural number (a whole number greater than 0), "computeFactorialOfN" returns its factorial.
+
+```javascript
+var output = computeFactorialOfN(3);
+console.log(output); // --> 6
+
+var output = computeFactorialOfN(4);
+console.log(output); // --> 24
+```
+
+```javascript
+function computeFactorialOfN(n) {
+    var factorial = 1;
+    for (i = 1; i <= n; i++) {
+        factorial *= i;
+    }
+    return factorial;
+}
+```
+
+#### repeatString
+
+Write a function called "repeatString".
+
+Given a string and a number, "repeatString" returns the given string repeated the given number of times.
+
+```javascript
+var output = repeatString('code', 3);
+console.log(output); // --> 'codecodecode'
+```
+
+```javascript
+function repeatString(string, num) {
+    // repeat num times of string
+    var result = "";
+    for (i = 1 ; i <= num; i++) {
+    result += string;
+    }
+    return result;
+}
+```
+
+### Iteration 5
+
+#### multiply
+
+Write a function called "multiply".
+
+Given 2 numbers, "multiply" returns their product.
+
+Notes:
+
+- It should not use the multiply operator - *
+
+```javascript
+var output = multiply(4, 7);
+console.log(output); // --> 28
+```
+
+```javascript
+function multiply(num1, num2) {
+    var resultIsPositive = true;
+    if ((num1 > 0 && num2 < 0) || (num1 < 0 && num2 > 0)) {
+        resultIsPositive = false;
+    }
+    num1 = Math.abs(num1);
+    num2 = Math.abs(num2);
+    var result = 0;
+    for (var i = 1; i <= num2; i++) {
+        result += num1;
+    }
+    if (resultIsPositive) {
+        return result;
+    } else {
+        return -result;
+    }
+}
+```
+
+### Iteration 6
+
+#### multiplyBetween
+
+Write a function called "multiplyBetween".
+
+Given 2 integers, "multiplyBetween" returns the product between the two given integers, beginning at num1, and excluding num2.
+
+Notes:
+
+- The product between 1 and 4 is 1 * 2 * 3 = 6.
+- If num2 is not greater than num1, it should return 0.
+
+```javascript
+var output = multiplyBetween(2, 5);
+console.log(output); // --> 24
+```
+
+```javascript
+function multiplyBetween(num1, num2) {
+    if (num2 <= num1) {
+        return 0;
+    }
+    var product = 1;
+    for (var i = num1; i < num2; i++) {
+       product *= i;
+    }
+    return product;
+}
+```
+
+#### computeSumBetween
+
+Write a function called "computeSumBetween".
+
+Given 2 integers, "computeSumBetween" returns the sum between the two given integers, beginning at num1, and excluding num2.
+
+Notes:
+
+- The sum between 1 and 4 is 1 + 2 + 3 = 6.
+- If num2 is not greater than num1, it should return 0.
+
+```javascript
+var output = computeSumBetween(2, 5);
+console.log(output); // --> 9
+```
+
+```javascript
+function computeSumBetween(num1, num2) {
+    if (num2 <= num1) {
+        return 0;
+    }
+    var sum = 0;
+    for (var i = num1; i < num2; i++) {
+       sum += i;
+    }
+    return sum;
+}
+```
+
 ## Convert Array To Object 1 - 3
+
+#### Convert Array To Object 1
+
+Write a function 'transformFirstAndLast' that takes in an array, and returns an object with:
+
+1. the first element of the array as the object's key, and
+2. the last element of the array as that key's value.
+Example input:
+
+```javascript
+var input = ['Queen', 'Elizabeth', 'Of Hearts', 'Beyonce'];
+```
+
+Function's return value (output):
+
+```javascript
+{
+  Queen : 'Beyonce'
+}
+```
+
+Do not change the input array. Assume all elements in the input array will be of type 'string'.
+
+Note that the input array may have a varying number of elements. Your code should flexibly accommodate that.
+
+E.g. it should handle input like:
+
+```javascript
+['Kevin', 'Bacon', 'Love', 'Hart', 'Costner', 'Coleman']
+```
+
+Function's return value (output):
+
+```javascript
+{
+  Kevin : 'Coleman'
+}
+```
+
+```javascript
+function transformFirstAndLast(array) {
+    var transformed = {};
+    // result[key] = value
+    transformed[array[0]] = array[array.length - 1];
+    return transformed;
+}
+```
+#### Convert Array To Object 2
+
+Convert Array To Object 2
+Submitted on 12/01/2021
+Write a function 'transformArrayToObject' which takes in an array of arrays, and returns an object with each pair of elements in the array as a key-value pair.
+
+Example input:
+
+```javascript
+var input = [['make', 'Ford'], ['model', 'Mustang'], ['year', 1964]];
+```
+
+Function's return value (output):
+
+```javascript
+{
+  make : 'Ford',
+  model : 'Mustang',
+  year : 1964
+}
+```
+
+Do not change the input string. Assume that all elements in the array will be of type 'string'.
+
+Note that the input may have a different number of elements than the given sample. For instance, if the input had 6 values instead of 4, your code should flexibly accommodate that.
+
+```javascript
+function transformArrayToObject(array) {
+    var transformed = {};
+    for (i = 0; i < array.length; i++) {
+        transformed[array[i][0]] = array[i][1];
+    }
+    return transformed;
+}
+```
+
+#### Convert Array To Object 3
+
+Write a function called "transformEmployeeData" that transforms some employee data from one format to another.
+
+The argument will look like this:
+
+```javascript
+var input = [
+    [
+        ['firstName', 'Joe'], ['lastName', 'Blow'], ['age', 42], ['role', 'clerk']
+    ],
+    [
+        ['firstName', 'Mary'], ['lastName', 'Jenkins'], ['age', 36], ['role', 'manager']
+    ]
+];
+```
+
+Given that input, the return value should look like this:
+
+```javascript
+[
+    {firstName: 'Joe', lastName: 'Blow', age: 42, role: 'clerk'},
+    {firstName: 'Mary', lastName: 'Jenkins', age: 36, role: 'manager'}
+]
+```
+
+Note that the input may have a different number of rows or different keys than the given sample.
+
+For example, let's say the HR department adds a "tshirtSize" field to each employee record. Your code should flexibly accommodate that.
+
+```javascript
+function transformEmployeeData(employeeData) {
+    var employeeArray = [];
+    for (var i = 0; i < employeeData.length; i++) {
+        personArray = employeeData[i];
+        var personObj = {};
+        for (var j = 0; j < personArray.length; j++) {
+            personObj[personArray[j][0]] = personArray[j][1];
+        }
+        employeeArray.push(personObj);
+    }
+    return employeeArray;
+}
+```
+
 ## Convert Object To Array 1 - 3
 
- 
+#### Convert Object To Array 1
+
+Write a function called "getAllKeys" which returns an array of all the input object's keys. Example input:
+
+```javascript
+var input = {
+  name : 'Sam',
+  age : 25,
+  hasPets : true
+};
+```
+
+Function's return value (output) :
+
+```javascript
+['name', 'age', 'hasPets']
+```
+
+Do not use "Object.keys" to solve this prompt.
+
+Note that your function should be able to handle any object passed in it.
+
+E.g. it should also handle an input like:
+
+```javascript
+var alternativeInput = {
+  a : 'a',
+  number : 11,
+  hungry : true,
+  grammyWins : 1
+};
+```
+
+Function's return value (output):
+
+```javascript
+['a', 'number', 'hungry', 'grammyWins']
+```
+
+```javascript
+function getAllKeys(obj) {
+    var keys = [];
+    for (var key in obj) {
+        keys.push(key);
+    }
+    return keys ;
+}
+```
+
+#### Convert Object To Array 2
+
+Write a function called "listAllValues" which returns an array of all the input object's values. Example input:
+
+```javascript
+var input = {
+  name : 'Krysten',
+  age : 33,
+  hasPets : false
+};
+```
+
+Function's return value (output):
+
+```javascript
+['Krysten', 33, false]
+```
+
+Do not use "Object.values" to solve this prompt.
+
+Note that the input may have a different number of keys and values than the given sample. E.g. it should also handle an input like:
+
+```javascript
+var alternativeInput = {
+  a : 'a',
+  number : 11,
+  hungry : true,
+  grammyWins : 1
+};
+```
+
+Function's return value (output):
+
+```javascript
+['a', 11, true, 1]
+```
+
+```javascript
+function listAllValues(obj) {
+    var values = [];
+    for (var key in obj) {
+        values.push(obj[key]);
+    }
+    return values;
+}
+```
+
+#### Convert Object To Array 3
+
+Write a function called "convertObjectToArray" which converts an object literal into an array of arrays, like this:
+
+Argument:
+
+```javascript
+var input = {
+  name: 'Holly',
+  age: 35,
+  role: 'producer'
+};
+```
+
+Return value:
+
+```javascript
+[['name', 'Holly'], ['age', 35], ['role', 'producer']]
+```
+
+```javascript
+function convertObjectToArray(obj) {
+    var result = [];
+    for (var key in obj) {
+        var innerArray = [key,obj[key]];
+        result.push(innerArray);
+    }
+    return result;
+}
+```
+
+#### Greet Customer
+
+Write a function called "greetCustomer".
+
+Given a name, "greetCustomer" returns a greeting based on how many times that customer has visited the restaurant. Please refer to the customerData object.
+
+The greeting should be different, depending on the name on their reservation.
+
+Case 1 - Unknown customer ( Name is not present in customerData ):
+
+```javascript
+var output = greetCustomer('Terrance');
+console.log(output); // --> 'Welcome! Is this your first time?'
+```
+
+Case 2 - Customer who has visited only once ( 'visits' value is 1 ):
+
+```javascript
+var output = greetCustomer('Joe');
+console.log(output); // --> 'Welcome back, Joe! We're glad you liked us the first time!'
+```
+
+Case 3 - Repeat customer: ( 'visits' value is greater than 1 ):
+
+```javascript
+var output = greetCustomer('Carol');
+console.log(output); // --> 'Welcome back, Carol! So glad to see you again!'
+
+Notes:
+
+- Your function should not alter the customerData object to update the number of visits.
+- Do not hardcode to the exact sample data. This is a BAD IDEA:
+
+```javascript
+if (firstName === 'Joe') {
+  // do something
+}
+```
+
+```javascript
+var customerData = {
+  'Joe': {
+    visits: 1
+  },
+  'Carol': {
+    visits: 2
+  },
+  'Howard': {
+    visits: 3,
+  },
+  'Carrie': {
+    visits: 4
+  }
+};
+
+function greetCustomer(firstName) {
+  if (customerData[firstName] === undefined) {
+      return 'Welcome! Is this your first time?';
+  }
+  if (customerData[firstName].visits === 1) {
+      return `Welcome back, ${firstName}! We're glad you liked us the first time!`;
+  } else {
+      return `Welcome back, ${firstName}! So glad to see you again!`;
+  }
+}
+```
+
+
