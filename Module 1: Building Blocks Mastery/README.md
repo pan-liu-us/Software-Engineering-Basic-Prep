@@ -1,14 +1,3 @@
-Conditionals 1 - 9
-Objects 1 - 13
-String Methods 1 - 3
-Math 1- 6
-Array Methods 1 - 16
-Array String Methods 1 - 2
-Advanced 1 - 8
-Interation 1 - 6
-Convert Array To Object 1 - 3
-Convert Object To Array 1 - 3
-
 ## Conditionals 1 - 9
 
 ### Conditionals 1
@@ -2096,7 +2085,798 @@ function computeAreaOfACircle(radius) {
 
 ### Math 4
 
+#### computePower
+
+Write a function called "computePower".
+
+Given a number and an exponent, "computePower" returns the given number, raised to the given exponent.
+
+```javascript
+var output = computePower(2, 3);
+console.log(output); // --> 8
+```
+
+```javascript
+function computePower(num, exponent) {
+  return Math.pow(num, exponent);
+}
+```
+
+#### computeSquareRoot
+
+Write a function called "computeSquareRoot". Given a number, "computeSquareRoot" returns its square root.
+
+```javascript
+var output = computeSquareRoot(9);
+console.log(output); // --> 3
+```
+
+```javascript
+function computeSquareRoot(num) {
+  return Math.sqrt(num);
+}
+```
+
+#### doubleSquareRootOf
+
+Write a function called "doubleSquareRootOf". Given a number, "doubleSquareRootOf" returns double its square root.
+
+```javascript
+var output = doubleSquareRootOf(121);
+console.log(output); // --> 22
+```
+
+```javascript
+function doubleSquareRootOf(num) {
+  return Math.sqrt(num) * 2;
+}
+```
+
+### Math 5
+
+#### calculateBillTotal
+
+Write a function called "calculateBillTotal".
+
+Given the pre tax and pre tip amount of a meal, "calculateBillTotal" returns the total amount due after tax and tip.
+
+Notes:
+
+- Assume that sales tax is 9.5% and tip is 15%.
+- Do NOT tip on the sales tax, only on the pre tip amount.
+
+```javascript
+var output = calculateBillTotal(20);
+console.log(output); // --> 24.9
+```
+
+```javascript
+function calculateBillTotal(preTaxAndTipAmount) {
+  var salesTax = preTaxAndTipAmount * .095;
+  var tip = preTaxAndTipAmount * .15;
+  return preTaxAndTipAmount + salesTax + tip;
+}
+```
+
+### Math 6
+
+#### computeCompoundInterest
+
+Write a function called "computeCompoundInterest".
+
+Given a principal, an interest rate, a compounding frequency, and a time (in years), "computeCompoundInterest" returns the amount of compound interest generated.
+
+```javascript
+var output = computeCompoundInterest(1500, .043, 4, 6);
+console.log(output); // --> 438.8368221341061
+```
+
+Reference: https://en.wikipedia.org/wiki/Compound_interest#Calculation_of_compound_interest This shows the formula used to calculate the total compound interest generated.
+
+```javascript
+function computeCompoundInterest(principal, interestRate, compoundingFrequency, timeInYears) {
+  // P' - P = P * (1 + r/n) ^ nt - P
+  var CompoundInterest = (principal * Math.pow((1 + (interestRate/compoundingFrequency)), (timeInYears * compoundingFrequency))) - principal;
+  return CompoundInterest;
+}
+```
+
 ## Array Methods 1 - 16
+
+### Array Methods 1
+
+#### getNthElement
+
+Write a function called "getNthElement".
+
+Given an array and an integer, "getNthElement" returns the element at the given integer, within the given array.
+
+Notes:
+
+- If the array has a length of 0, it should return 'undefined'.
+
+```javascript
+var output = getNthElement([1, 3, 5], 1);
+console.log(output); // --> 3
+```
+
+```javascript
+function getNthElement(array, n) {
+    eturn array[n];
+}
+```
+
+#### getFirstElement
+
+Write a function called "getFirstElement".
+
+Given an array, "getFirstElement" returns the first element of the given array.
+
+Notes:
+
+- If the given array has a length of 0, it should return undefined.
+
+```javascript
+var output = getFirstElement([1, 2, 3, 4, 5]);
+console.log(output); // --> 1
+```
+
+```javascript
+function getFirstElement(array) {
+    return array[0];
+}
+```
+
+#### getLastElement
+
+Write a function called "getLastElement".
+
+Given an array, "getLastElement" returns the last element of the given array.
+
+Notes:
+
+- If the given array has a length of 0, it should return 'undefined'.
+
+```javascript
+var output = getLastElement([1, 2, 3, 4]);
+console.log(output); // --> 4
+```
+
+```javascript
+function getLastElement(array) {
+  var index = array.length - 1;
+  return array[index];
+}
+```
+
+### Array Methods 2
+
+#### addToFront
+
+Write a function called "addToFront".
+
+Given an array and an element, "addToFront" adds the given element to the front of the given array, and returns the given array.
+
+Notes:
+
+- It should be the SAME array, not a new array.
+- In order to do this you should be familiar with the 'unshift' method.
+
+```javascript
+var output = addToFront([1, 2], 3);
+console.log(output); // -> [3, 1, 2]
+```
+
+```javascript
+function addToFront(arr, element) {
+  arr.unshift(element);
+  return arr;
+}
+```
+
+#### addToBack
+
+Write a function called "addToBack".
+
+Given an array and an element, "addToBack" returns the given array with the given element added to the end.
+
+Notes:
+
+- It should be the SAME array, not a new array.
+- In order to do this you should be familiar with the 'push' method.
+
+```javascript
+var output = addToBack([1, 2], 3);
+console.log(output); // -> [1, 2, 3]
+```
+
+```javascript
+function addToBack(arr, element) {
+  arr.push(element);
+  return arr;
+}
+```
+
+### Array Methods 3
+
+#### joinArrays
+
+Write a function called "joinArrays".
+
+Given two arrays, "joinArrays" returns an array with the elements of "arr1" in order, followed by the elements in "arr2".
+
+```javascript
+var output = joinArrays([1, 2], [3, 4]);
+console.log(output); // --> [1, 2, 3, 4]
+```
+
+You should be familiar with the "concat" method for this problem.
+
+```javascript
+function joinArrays(arr1, arr2) {
+  return arr1.concat(arr2);
+}
+```
+
+#### getElementsAfter
+
+Write a function called "getElementsAfter".
+
+Given an array and an index, "getElementsAfter" returns a new array with all the elements after (but not including) the given index.
+
+Notes:
+
+- In order to do this you should be familiar with the 'slice' method.
+
+```javascript
+var output = getElementsAfter(['a', 'b', 'c', 'd', 'e'], 2);
+console.log(output); // --> ['d', 'e']
+```
+
+```javascript
+function getElementsAfter(array, n) {
+  return array.slice( n + 1);
+}
+```
+
+#### getElementsUpTo
+
+Write a function called "getElementsUpTo".
+
+Given an array and a index, "getElementsUpTo", returns an array with all the elements up until, but not including, the element at the given index.
+
+Notes:
+
+- In order to do this you should be familiar with the 'slice' method.
+
+```javascript
+var output = getElementsUpTo(['a', 'b', 'c', 'd', 'e'], 3)
+console.log(output); // --> ['a', 'b', 'c']
+```
+
+```javascript
+function getElementsUpTo(array, n) {
+  return array.slice(0, n);
+}
+```
+
+### Array Methods 4
+
+#### getAllElementsButFirst
+
+Write a function called "getAllElementsButFirst".
+
+Given an array, "getAllElementsButFirst" returns an array with all the elements but the first.
+
+```javascript
+var input = [1, 2, 3, 4];
+var output = getAllElementsButFirst(input);
+console.log(output); // --> [2, 3, 4]
+```
+
+```javascript
+function getAllElementsButFirst(array) {
+  return array.slice(1);
+}
+```
+
+#### getAllElementsButLast
+
+Write a function called "getAllElementsButLast".
+
+Given an array, "getAllElementsButLast" returns an array with all the elements but the last.
+
+```javascript
+var input = [1, 2, 3, 4];
+var output = getAllElementsButLast(input);
+console.log(output); // --> [1, 2 , 3]
+```
+
+```javascript
+function getAllElementsButLast(array) {
+  return array.slice(0, array.length - 1);
+}
+```
+
+#### removeFromFront
+
+Write a function called "removeFromFront".
+
+Given an array, "removeFromFront" returns the given array with its first element removed.
+
+Notes:
+
+- You should be familiar with the method 'shift'.
+
+```javascript
+var output = removeFromFront([1, 2, 3]);
+console.log(output); // --> [2, 3]
+```
+
+```javascript
+function removeFromFront(arr) {
+  arr.shift();
+  return arr;
+}
+```
+
+### Array Methods 5
+
+#### removeFromBackOfNew
+
+Write a function called "removeFromBackOfNew".
+
+Given an array, "removeFromBackOfNew" returns a new array containing all but the last element of the given array.
+
+Notes:
+
+- You should be familiar with the 'slice' method.
+
+```javascript
+var arr = [1, 2, 3];
+var output = removeFromBackOfNew(arr);
+console.log(output); // --> [1, 2]
+console.log(arr); // --> [1, 2, 3]
+```
+
+```javascript
+function removeFromBackOfNew(arr) {
+  var newArr = arr.slice();
+  newArr.pop();
+  return newArr;
+}
+```
+
+#### removeFromFrontOfNew
+
+Write a function called "removeFromFrontOfNew".
+
+Given an array, "removeFromFrontOfNew" returns a new array containing all but the first element of the given array.
+
+Notes:
+
+- You should be familiar with the 'slice' method.
+
+```javascript
+var arr = [1, 2, 3];
+var output = removeFromFrontOfNew(arr);
+console.log(output); // --> [2, 3]
+console.log(arr); // --> [1, 2, 3]
+```
+
+```javascript
+function removeFromFrontOfNew(arr) {
+  var newArr = arr.slice();
+  newArr.shift();
+  return newArr;
+}
+```
+
+#### countCharacter
+
+Write a function called "countCharacter".
+
+Given a string input and a character, "countCharacter" returns the number of occurrences of a given character in the given string.
+
+```javascript
+var output = countCharacter('I am a hacker', 'a');
+console.log(output); // --> 3
+```
+
+```javascript
+function countCharacter(str, char) {
+    var count = 0;
+    for (var i = 0 ; i < str.length; i++) {
+        if (str[i] === char) {
+            count++;
+        }
+    }
+    return count;
+}
+```
+
+### Array Methods 6
+
+#### removeFromBack
+
+Write a function called "removeFromBack".
+
+Given an array, "removeFromBack" returns the given array with its last element removed.
+
+Notes:
+
+- You should be familiar with the method 'pop'.
+
+```javascript
+var output = removeFromBack([1, 2, 3]);
+console.log(output); // --> [1, 2]
+```
+
+```javascript
+function removeFromBack(arr) {
+  arr.pop()；
+  return arr;
+}
+```
+
+### Array Methods 7
+
+#### joinThreeArrays
+
+Write a function called "joinThreeArrays".
+
+Given three arrays, "joinThreeArrays" returns an array with the elements of "arr1" in order followed by the elements in "arr2" in order followed by the elements of "arr3" in order.
+
+```javascript
+var output = joinThreeArrays([1, 2], [3, 4], [5, 6]);
+console.log(output); // --> [1, 2, 3, 4, 5, 6]
+```
+
+You should be familiar with the "concat" method for this problem.
+
+```javascript
+function joinThreeArrays(arr1, arr2, arr3) {
+  var concatted = arr1.concat(arr2, arr3);
+  return concatted;
+}
+```
+
+#### addToFrontOfNew
+
+Write a function called "addToFrontOfNew".
+
+Given an array and an element, "addToFrontOfNew" returns a new array containing all the elements of the given array, with the given element added to the front.
+
+Important: It should be a NEW array instance, not the original array instance.
+
+```javascript
+var input = [1, 2];
+var output = addToFrontOfNew(input, 3);
+console.log(output); // --> [3, 1, 2];
+console.log(input); // --> [1, 2]
+```
+
+```javascript
+function addToFrontOfNew(arr, element) {
+  var copyOfArr = arr.slice();
+  copyOfArr.unshift(element);
+  return copyOfArr;
+}
+```
+
+#### addToBackOfNew
+
+Write a function called "addToBackOfNew".
+
+Given an array and an element, "addToBackOfNew" returns a clone of the given array, with the given element added to the end.
+
+Important: It should be a NEW array instance, not the original array instance.
+
+```javascript
+var input = [1, 2];
+var output = addToBackOfNew(input, 3);
+console.log(input); // --> [1, 2]
+console.log(output); // --> [1, 2, 3]
+```
+
+```javascript
+function addToBackOfNew(arr, element) {
+  var copyOfArr = arr.slice();
+  copyOfArr.push(element);
+  return copyOfArr;
+}
+```
+
+#### getAllElementsButNth
+
+Write a function called "getAllElementsButNth".
+
+Given an array and an index, "getAllElementsButNth" returns an array with all the elements but the nth.
+
+```javascript
+var output = getAllElementsButNth(['a', 'b', 'c'], 1);
+console.log(output); // --> ['a', 'c']
+```
+
+```javascript
+function getAllElementsButNth(array, n) {
+  array.splice(n, 1);
+  return array;
+}
+```
+
+### Array Methods 8
+
+#### removeElement
+
+Write a function called "removeElement".
+
+Given an array of elements, and a "discarder" parameter, "removeElement" returns an array containing the items in the given array that do not match the "discarder" parameter.
+
+Notes:
+
+- If all the elements match, it should return an empty array.
+- If an empty array is passed in, it should return an empty array.
+
+```javascript
+var output = removeElement([1, 2, 3, 2, 1], 2);
+console.log(output); // --> [1, 3, 1]
+```
+
+```javascript
+function removeElement(array, discarder) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] === discarder) {
+            array.splice(i, 1);
+            i--;
+        }
+    }
+    return array;
+}
+```
+
+#### keep
+
+Write a function called "keep".
+
+Given an array and a keeper element, "keep" returns an array containing the items that match the given keeper element.
+
+Notes:
+
+- If no elements match, "keep" should return an empty array.
+
+```javascript
+var output = keep([1, 2, 3, 2, 1], 2)
+console.log(output); --> [2, 2]
+```
+
+```javascript
+function keep(array, keeper) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] !== keeper) {
+            array.splice(i, 1);
+            i--;
+        }
+    }
+    return array;
+}
+```
+
+#### computeAverageOfNumbers
+
+Write a function called "computeAverageOfNumbers".
+
+Given an array of numbers, "computeAverageOfNumbers" returns their average.
+
+Notes:
+
+- If given an empty array, it should return 0.
+
+```javascript
+var input = [1,2,3,4,5];
+var output = computeAverageOfNumbers(input);
+console.log(output); // --> 3
+```
+
+```javascript
+function computeAverageOfNumbers(nums) {
+    if (nums.length === 0) {
+        return 0;
+    }
+  
+    var sum = 0;
+    for (var i = 0; i<nums.length; i++) {
+        sum += nums[i];
+    }
+    return sum / nums.length;
+}
+```
+
+### Array Methods 9
+
+#### filterOddLengthWords
+
+Write a function called "filterOddLengthWords".
+
+Given an array of strings, "filterOddLengthWords" returns an array containing only the elements of the given array whose lengths are odd numbers.
+
+```javascript
+var output = filterOddLengthWords(['there', 'it', 'is', 'now']);
+console.log(output); // --> ['there', "now']
+```
+
+```javascript
+function filterOddLengthWords(words) {
+    var oddLengthWords = [];
+    for (var i = 0; i < words.length; i++) {
+        if (words[i].length % 2 === 1) {
+            oddLengthWords.push(words[i]);
+        } 
+    }
+    return oddLengthWords;
+}
+```
+
+#### filterEvenLengthWords
+
+Write a function called "filterEvenLengthWords".
+
+Given an array of strings, "filterEvenLengthWords" returns an array containing only the elements of the given array whose length is an even number.
+
+```javascript
+var output = filterEvenLengthWords(['word', 'words', 'word', 'words']);
+console.log(output); // --> ['word', 'word']
+```
+
+```javascript
+function filterEvenLengthWords(words) {
+    var evenLengthWords = [];
+    for (var i = 0; i < words.length; i++) {
+        if (words[i].length % 2 === 0) {
+            evenLengthWords.push(words[i]);
+        }
+    }
+    return evenLengthWords;
+}
+```
+
+#### getLengthOfLongestElement
+
+Write a function called "getLengthOfLongestElement".
+
+Given an array, "getLengthOfLongestElement" returns the length of the longest string in the given array.
+
+Notes:
+
+- It should return 0 if the array is empty.
+
+```javascript
+var output = getLengthOfLongestElement(['one', 'two', 'three']);
+console.log(output); // --> 5
+```
+
+```javascript
+function getLengthOfLongestElement(arr) {
+    if (arr.length === 0) {
+        return 0;
+    }
+    var longestString = arr[0];
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i].length > longestString.length) {
+            longestString = arr[i];
+        }
+    }
+    return longestString.length;
+}
+```
+
+### Array Methods 10
+
+#### squareElements
+
+Write a function called "squareElements". Given an array of numbers, "squareElements" should return a new array where each element is the square of the element of the given array.
+
+```javascript
+var output = squareElements([1, 2, 3]);
+console.log(output); // --> [1, 4, 9]
+```
+
+```javascript
+function squareElements(arr) {
+    var squared = [];
+    for (var i = 0; i < arr.length; i++) {
+        squared.push(arr[i] ** 2);
+    }
+    return squared;
+}
+```
+
+#### filterOddElements
+
+Write a function called "filterOddElements".
+
+Given an array of numbers, "filterOddElements" returns an array containing only the odd numbers of the given array.
+
+```javascript
+var output = filterOddElements([1, 2, 3, 4, 5]);
+console.log(output); // --> [1, 3, 5]
+```
+
+```javascript
+function filterOddElements(arr) {
+    var oddElements = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 1) {
+            oddElements.push(arr[i]);
+        }
+    }
+    return oddElements;
+}
+```
+
+#### computeProductOfAllElements
+
+Write a function called "computeProductOfAllElements".
+
+Given an array of numbers, "computeProductOfAllElements" returns the products of all the elements in the given array.
+
+Notes:
+
+- If given array is empty, it should return 0.
+
+```javascript
+var output = computeProductOfAllElements([2, 5, 6]);
+console.log(output); // --> 60
+```
+
+```javascript
+function computeProductOfAllElements(arr) {
+    if (arr.length === 0) {
+        return 0;
+    }
+    var product = 1;
+    for (var i = 0; i < arr.length; i++) {
+        product *= arr[i];
+    }
+    return product;
+}
+```
+
+### Array Methods 11
+
+#### filterEvenElements
+
+Write a function called "filterEvenElements".
+
+Given an array of numbers, "filterEvenElements" returns an array containing only the even numbers of the given array.
+
+```javascript
+var output = filterEvenElements([2, 3, 4, 5, 6]);
+console.log(output); // --> [2, 4, 6]
+```
+
+```javascript
+function filterEvenElements(arr) {
+    var evenElements = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            evenElements.push(arr[i]);
+        }
+    } 
+    return evenElements;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
 ## Array String Methods 1 - 2
 ## Advanced 1 - 8
 ## Interation 1 - 6
