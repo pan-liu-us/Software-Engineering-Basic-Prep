@@ -489,7 +489,42 @@ testDecoratedStudentList(classList,decoratedList);
 
 ### Isograms
 
+Notes:
+
+- Assume your input is only letters.
+- Assume the empty string is an isogram.
+- Ignore case.
+- Follow the pseudocode exactly!
+
 ```javascript
+// FUNCTION DEFINITION(S)
+function isIsogram(text) {
+    // add each char to a set
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+    // note: a set drops dup values
+    // thus, to see if all the chars were unique,
+    // check length of text and the size of the set
+    text = text.toLowerCase();
+    var letters = text.split('');
+    letters = new Set(letters);
+    return text.length === letters.size;
+}
+
+// ASSERTION FUNCTION(S) TO BE USED
+function assertEqual(actual, expected, testName){
+    if (actual === expected){
+        console.log('passed');
+    } else { 
+        console.log('FAILED [' + testName +'] Expected + "'+ expected + '" but got"' + actual +'"');
+    }    
+}
+
+// TESTS CASES
+assertEqual(isIsogram(''), true, 'should return true for an empty string');
+assertEqual(isIsogram('true'), true, 'should return true for an isogram');
+assertEqual(isIsogram('assert'), false, 'should return false for non-isogram');
+assertEqual(isIsogram('caCAtcHh'), false, 'should ignore case');
+```
 
 ### Interpret A Skeleton
 
