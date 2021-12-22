@@ -10,7 +10,7 @@ Note that increases in height count double.
 
 Here are some examples of your code running, assuming you have successfully created the described function. Please be sure to name the function "sumAltitudeDeltas".
 
-```javescript
+```javascript
 let output_0 = sumAltitudeDeltas([1, 2, 3, 1], 0, 3);
 console.log(output_0); //--> 6
 
@@ -27,7 +27,7 @@ let output_4 = sumAltitudeDeltas([4, 1, 4, 0, 20, 13], 1, 4);
 console.log(output_4); //--> 50
 ```
 
-```javescript
+```javascript
 function sumAltitudeDeltas(height, start, end) {
     let sum = 0;
     for (let i = start; i < end; i++) {
@@ -52,7 +52,7 @@ If there are 4 'red' elements consecutively in a row, 'checkWinner' should retur
 
 Here are some examples of your code running, assuming you have successfully created the described function. Please be sure to name the function "checkWinner".
 
-```javescript
+```javascript
 let blackWinner = checkWinner(['black', 'red', 'black', 'black', 'black', 'black', 'red']);
 console.log(blackWinner); //-> 'Black Wins!'
 
@@ -63,7 +63,7 @@ let draw = checkWinner(['red', 'red', 'red', 'black', 'red', 'black', 0]);
 console.log(draw); // -> 'Draw!'
 ```
 
-```javescript
+```javascript
 function checkWinner(array) {
     for (let i = 0; i < array.length; i++) {
         if (array[i] === "black" && array[i + 1] === "black" && array[i + 2] === "black" && array[i + 3] === "black") {
@@ -82,7 +82,7 @@ Let us walk through the idea for this problem, as it is somewhat more complex th
 
 The first function you will write will be called `generateSampleView`. The input for this function will always be an array of objects, theoretically the result of a call to an API, or database. `generateSampleView` will take this array as its parameter, and return an array of strings based upon conditions that we will describe in a moment. The format of this input array of objects is described below:
 
-```javescript
+```javascript
 var users = [
   {
     "id": 1,
@@ -142,7 +142,7 @@ Your function should examine each user object, and add to the array return value
 
 Thus, if our input was the users array listed above, our output would be:
 
-```javescript
+```javascript
 var output = ["Sincere@april.biz", "Victor Plains, Suite 879, Wisokyburgh, 90566-7771"];
 ```
 
@@ -152,8 +152,7 @@ Please DO NOT USE JSON.stringify(), Array.join(), or any other "convert both arr
 
 There are typically two things that we must check in order to determine that two arrays of scalar values are indeed equal to one another. Do they have the same length, and do they contain the same values. Thus, your function must make a determination about these issues, then either log 'passed' to the console or else 'failed', as well as the testName to the console. The tests for this function will check to see if your console.log message for a passing case contains 'passed', and 'failed' for a failing case (both in lower case).
 
-
-```javescript
+```javascript
 var users = [
   {
     "id": 1,
@@ -259,7 +258,7 @@ For example, an input of `[12, 13, 15, 16, 17]` would return `"12, 13, 15-17"`
 
 Complete the solution so that it takes a list of integers in increasing order and returns a correctly formatted string in the range format. Below is an example of your code running, assuming you have solved the problem correctly.
 
-```javescript
+```javascript
 solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]);
 // returns "-6,-3-1,3-5,7-11,14,15,17-20"
 
@@ -267,7 +266,7 @@ solution([-4, -3, -2, -1, 2, 3, 5, 6, 12, 13, 14, 15, 17]);
 // returns "-4--1,2,3,5,6,12-15,17"
 ```
 
-```javescript
+```javascript
 function solution(int) {
   if (int.length > 0 && int.length < 3) {
     return int.join(",");
@@ -321,7 +320,7 @@ assertEqual(actual_2, expected_2, 'should return formatted integers');
 
 Complete the function `splitPairs` such that it splits the input string into pairs of characters. If the input string has a length that is odd, then it should replace the missing second character of the final pair with an underscore `_.` Note, an empty string should make your function produce an empty array.
 
-```javescript
+```javascript
 function splitPairs(input) {
   let inputArray = input.split('');
   let result = [];
@@ -364,7 +363,7 @@ If two words score the same, return the word that appears earliest in the origin
 
 All letters will be lowercase and all inputs will be valid.
 
-```javescript
+```javascript
 function highestScoringWord(string) {
     var words = string.split(' '),
 	highestScore = 0,
@@ -396,7 +395,7 @@ Input2: "http://www.zombie-bites.com  " Output2: "zombie-bites"
 
 Input3: "https://www.cnet.com  " Output3: "cnet"
 
-```javescript
+```javascript
 function getDomain(url) {
   url = url.replace("https://", '');
   url = url.replace("http://", '');
