@@ -429,7 +429,7 @@ var expectedAverageResult = 3;
 assertEqual(actualAverageResult, expectedAverageResult, 'should accurately calculate the average of integers in an array');
 ```
 
-### Decorate Student List
+#### Decorate Student List
 
 ```javascript
 // FUNCTION DEFINITIONS
@@ -487,7 +487,7 @@ var decoratedList = decorateClassListWithAges(classList);
 testDecoratedStudentList(classList,decoratedList);
 ```
 
-### Isograms
+#### Isograms
 
 Notes:
 
@@ -526,22 +526,225 @@ assertEqual(isIsogram('assert'), false, 'should return false for non-isogram');
 assertEqual(isIsogram('caCAtcHh'), false, 'should ignore case');
 ```
 
-### Interpret A Skeleton
+#### Interpret A Skeleton
 
 ```javascript
+// FUNCTION DEFINITION(S)
+function findMaxRepeatCountInWord(word) {
+    // Break up individual word into individual letters.
+    // Count the instances of each letter
+    // Iterate all the counts and find the highest
+    // Return this word's max repeat count
+    var letters = word.split('');
+    var letterCount = {};
+    for (var i = 0; i < letters.length; i++) {
+        var currentLetter = letters[i];
+        if (letterCount[currentLetter] === undefined) {
+            letterCount[currentLetter] = 1;
+        } else {
+            letterCount[currentLetter]+=1
+        }
+    }
+  
+    var max = 0;
+    for (letter in letterCount) {
+        if (letterCount[letter] > max) {
+        max = letterCount[letter];
+        }
+    }
+  
+    return max;
+}
 
-### Declaring Functions
+
+function findFirstWordWithMostRepeatedChars(text) {
+    var maxRepeatCountOverall = 0;
+    var wordWithMaxRepeatCount = '';
+
+    // Break up input text into words (space-delimited).
+    // For each word...
+    var words = text.split(' ');
+    for (var j = 0; j < words.length; j++) {
+        var repeatCountForWord = findMaxRepeatCountInWord(words[j]);
+        // If that max repeat count is higher than the overall max repeat count, then
+            // update maxRepeatCountOverall
+         // update wordWithMaxRepeatCount
+        if (repeatCountForWord > maxRepeatCountOverall) {
+            maxRepeatCountOverall = repeatCountForWord;
+            wordWithMaxRepeatCount = words[j];
+        }
+    }
+  return wordWithMaxRepeatCount;
+}
+
+// ASSERTION FUNCTION(S) TO BE USED
+function assertEqual(actual, expected, testName) {
+    if (actual === expected) {
+        console.log('passed');
+    } else {
+        console.log('FAILED [' + testName + '] Expected "' + expected + '", but got "' + actual + '"');
+    }
+}
+
+
+// TESTS CASES
+// TESTS FOR findMaxRepeatCountInWord
+var actualMaxCount = findMaxRepeatCountInWord('bananas');
+var expectedMaxCount = 3;
+assertEqual(actualMaxCount, expectedMaxCount, 'should return count of letter that is repeated most often in input word');
+
+// TESTS FOR findFirstWordWithMostRepeatedChars
+var actualWord = findFirstWordWithMostRepeatedChars('bananas are excellent');
+var expectedWord = 'bananas';
+assertEqual(actualWord, expectedWord, 'should return word with most repeated letters');
+```
+
+#### Render Phone Number (Optional)
 
 ```javascript
+// FUNCTION DEFINITION(S)
+function PhoneNumberFormatter(numbers) {
+  this.numbers = numbers;
+}
 
-### Render Phone Number (Optional)
+PhoneNumberFormatter.prototype.render = function() {
+  var string = '';
+  string += this.parenthesize(this.getAreaCode());
+  string += ' ';
+  string += this.getExchangeCode();
+  string += '-';
+  string += this.getLineNumber(); 
+  return string;
+};
+
+PhoneNumberFormatter.prototype.getAreaCode = function() {
+  return this.slice(0,3);
+};
+
+PhoneNumberFormatter.prototype.getExchangeCode = function() {
+  return this.slice(3,6);
+};
+
+PhoneNumberFormatter.prototype.getLineNumber = function() {
+  return this.slice(6,10);
+};
+
+PhoneNumberFormatter.prototype.parenthesize = function(string) {
+  return '(' + string + ')';
+};
+
+PhoneNumberFormatter.prototype.slice = function(start, end) {
+  return this.numbers.slice(start, end).join('');
+};
+
+// ASSERTION FUNCTION(S) TO BE USED
+function assertEqual(actual, expected, testName) {
+  if (actual !== expected) {
+    console.log('FAILED [' + testName + '] Expected "' + expected + '", but got "' + actual + '"');
+  } else {
+    console.log('PASSED [' + testName + ']');
+  }
+}
+
+
+// TESTS CASES
+var formatter = new PhoneNumberFormatter([6, 5, 0, 8, 3, 5, 9, 1, 7, 2]);
+assertEqual(formatter.render(), '(650) 835-9172', 'should render phone number in correct format');
+```
+
+#### Find Longest Palindrome
+
+Similarly to some of the previous problems in this section, there is a concept here that will be new to you. Ideally, your solution will use a native method (built into the language) called .sort(). Essentially, when called, this method takes a function that tells the sorting operation how it should order the resulting sorted array. We have supplied a function inside of the skeleton. Please consult this MDN documentation, and read it carefully: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort 
 
 ```javascript
+// FUNCTION DEFINITIONS
+function findLongestPalindrome(sentence) {
+    var words = sentence.split(' ');
+    var palindromes = [];
+    for (var i = 0; i < words.length; i++) {
+        if (isPalindrome(words[i])) {
+            palindromes.push(words[i]);  
+        }
+    }
+    sortedPalindromes = palindromes.sort(sortAscendingByLength); 
+    var longestPalindrome = sortedPalindromes.pop();
+    return longestPalindrome;
+}
 
-### Find Longest Palindrome
+function reverseString(string) {
+    var splitString = string.split('');
+    var reversedSplitString = splitString.reverse();
+    var reversedString = reversedSplitString.join('');
+    return reversedString;
+}
 
-```javascript
+function isPalindrome(word) {
+    word = word.toLowerCase();
+    return word === reverseString(word);
+}
 
+function sortAscendingByLength(a, b) {
+    if (a.length > b.length) {
+        return 1;
+    } else if (a.length < b.length) {
+        return -1;
+    } 
+    return 0;
+}
+
+// ASSERTION FUNCTION(S) TO BE USED
+function assertEqual(actual, expected, testName) {
+    if (actual === expected) {
+        console.log('passed');
+    } else {
+        console.log('FAILED [' + testName + '] Expected "' + expected + '", but got "' + actual + '"');
+    }
+}
+
+function assertArraysEqual(actual, expected, testName) {
+    var areEqualLength = actual.length === expected.length;
+    var areEqualItems = true;
+    for (var i = 0; i < expected.length; i++) {
+        if (expected[i] !== actual[i]) {
+            areEqualItems = false;
+            break;
+        }
+    }
+    if (areEqualLength && areEqualItems) {
+        console.log('passed');
+    } else {
+        console.log('FAILED [' + testName + '] Expected "' + expected + '", but got "' + actual + '"');
+    }
+}
+
+// TESTS FOR SORT ASCENDING BY LENGTH
+var unsortedStringsArray = ['little', 'small', 'a', 'base', 'trapeze'];
+var actualSorted = unsortedStringsArray.sort(sortAscendingByLength);
+var expectedSorted = ['a', 'base', 'small', 'little', 'trapeze'];
+
+assertArraysEqual(actualSorted, expectedSorted, 'should sort an array of strings into ascending order by length');
+
+// TESTS FOR REVERSE STRING
+var inputString = 'medicine';
+var actualReversed = reverseString(inputString);
+var expectedReverse = 'enicidem';
+
+assertEqual(actualReversed, expectedReverse, 'should return an input string reversed');
+
+// TESTS FOR IS PALINDROME
+var palindrome = 'racecar';
+var actualResult = isPalindrome(palindrome);
+var expectedResult = true;
+
+assertEqual(actualResult, expectedResult, 'should return true for a valid palindrome');
+
+// TESTS FOR FIND LONGEST PALINDROME
+var sentence = 'alula ana hannah madam minim';
+var actualLongest = findLongestPalindrome(sentence);
+var expectedLongest = 'hannah';
+
+assertEqual(actualLongest, expectedLongest, 'should return the longest palindrome in an input sentence');
+```
 
 ## Fashion Inventory Problems
 
