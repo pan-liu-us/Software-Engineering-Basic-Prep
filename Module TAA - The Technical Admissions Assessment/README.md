@@ -28,8 +28,6 @@ console.log(output_4); //--> 50
 ```
 
 ```javescript
-// please complete the challenge according to the instructions
-
 function sumAltitudeDeltas(height, start, end) {
     let sum = 0;
     for (let i = start; i < end; i++) {
