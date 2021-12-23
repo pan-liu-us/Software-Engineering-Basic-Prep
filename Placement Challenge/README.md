@@ -195,11 +195,94 @@ function usingSplice(array, start, deleteCount, item) {
 
 #### indexOf on an Array
 
-Complete the function indexOfArray. This function will take in two parameters, an array and an element, and returns the index, inside of the array, where the element is located. You will want to use the indexOf method for Arrays. If the element is not present within array, your function should return -1.
+Complete the function `indexOfArray`. This function will take in two parameters, an array and an element, and returns the index, inside of the array, where the element is located. You will want to use the `indexOf` method for Arrays. If the element is not present within array, your function should return -1.
+
+```javascript
+function indexOfArray(array, item) {
+  return array.indexOf(item);
+}
+```
+
+#### Join an Array into a String | Using join
+
+Complete a function that takes in two parameters, an array and a string. Your function should call join on the input array with an argument of the input string, and return the results.
+
+```javascript
+function useJoin(array, string) {
+  return array.join(string);
+}
+```
+
+#### Add a Property to an Object
+
+Complete a function that takes in three parameters, an object, and a string (which will represent a key), and a value. Your function should add a property to the inputted object. The key of this property should be the inputted string parameter, and the value of this property should be the inputted value. Your function should then return the inputted object.
+
+```javascript
+function addProperty(obj, key, value) {
+  obj[key] = value;
+  return obj;
+}
+```
+
+#### Remove a Property from an Object
+
+omplete a function that takes in two parameters, an object, and a string (which will represent a key). Your function should remove (delete) the property located at the inputted key. Your function should then return the inputted object.
+
+```javascript
+function removeProperty(obj, key) {
+  delete obj[key];
+  return obj;
+}
+```
+
+#### Iterate over an Object
+
+Complete a function that takes in one parameter, an object. Your function should iterate over the object, and log the values to the console. Your function need not return anything.
+
+NOTE: DO NOT USE Object.keys, or Object.values in your solution.
+
+```javascript
+function iterateOverObject(obj) {
+  for (key in obj) {
+      console.log(obj[key]);
+  }
+}
 
 
+/*
+If we want to return an array of those values, we can do:
 
+function iterateOverObject(obj) {  
+  var array = [];
+  for (key in obj) {
+      array.push(obj[key]);
+  }
+  return array;
+}
 
+If we can use Object.values:
 
+function iterateOverObject(obj) {
+  return Object.values(obj);
+}
 
+*/
+```
+
+## Intermediate
+
+#### Use an Object to count things
+
+Complete a function called countAllCharacters. Given a string, your function returns an object where each key is a character in the given string. The value of each key should be how many times each character appeared in the given string.
+
+Notes:
+
+- If given an empty string, countAllCharacters should return an empty object.
+
+```javascript
+var output = countAllCharacters('banana');
+console.log(output); // --> {b: 1, a: 3, n: 2}
+```
+
+```javascript
 
