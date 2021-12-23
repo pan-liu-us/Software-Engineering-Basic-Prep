@@ -285,4 +285,279 @@ console.log(output); // --> {b: 1, a: 3, n: 2}
 ```
 
 ```javascript
+function countAllCharacters(str) {
+  if (str.length === 0) {
+      return {};
+  } else {
+      var result = {};
+      for (var i = 0; i < str.length; i++) {
+          if (result[str[i]] === undefined) {
+              result[str[i]] = 1;
+          } else {
+              result[str[i]] += 1;
+          }
+      }
+      return result;
+  }
+}
+```
+
+More simple solution:
+
+```javascript
+function countAllCharacters(str) {
+  var result = {};
+  for (var i = 0; i < str.length; i++) {
+      if (result[str[i]] === undefined) {
+          result[str[i]] = 1;
+      } else {
+          result[str[i]] += 1;
+      }
+  }
+  return result;
+}
+```
+
+#### Convert a Complex Array to an Object
+
+Write a function called transformEmployeeData that transforms some employee data from one format to another.
+
+The argument will look like this:
+
+```javascript
+var input = [
+    [
+        ['firstName', 'Joe'], ['lastName', 'Blow'], ['age', 42], ['role', 'clerk']
+    ],
+    [
+        ['firstName', 'Mary'], ['lastName', 'Jenkins'], ['age', 36], ['role', 'manager']
+    ]
+];
+```
+
+Given that input, the return value should look like this:
+
+```javascript
+var result = [
+    {firstName: 'Joe', lastName: 'Blow', age: 42, role: 'clerk'},
+    {firstName: 'Mary', lastName: 'Jenkins', age: 36, role: 'manager'}
+]
+```
+
+Note that the input may have a different number of rows (more employees) or different keys than the given sample.
+
+```javascript
+function transformEmployeeData(employeeData) {
+  var result = [];
+  for (var i = 0; i < employeeData.length; i++) {
+      var employeeArr = employeeData[i];
+      var employeeObj = {};
+      for (var j = 0; j < employeeArr.length; j++) {
+          employeeObj[employeeArr[j][0]] = employeeArr[j][1];
+      }
+      result.push(employeeObj);
+  }
+  return result;
+}
+```
+
+#### Convert an Object to a Complex Array
+
+Complete a function called convertObjectToArray which converts an object literal into an array of arrays, like this:
+
+Argument:
+
+```javascript
+var input = {
+  name: 'Holly',
+  age: 35,
+  role: 'producer'
+}
+```
+Return value:
+
+```javascript
+var output = [['name', 'Holly'], ['age', 35], ['role', 'producer']]
+```
+
+Note that the input may have a different number of properties than the given sample.
+
+```javascript
+function convertObjectToArray(obj) {
+  var result = [];
+  for (var keys in obj) {
+      var innerArray = [keys, obj[keys]];
+      result.push(innerArray);
+  }
+  return result;
+}
+```
+
+#### Cumulative Challenge
+
+Complete a function called greetCustomers.
+
+Given a name, greetCustomers returns a greeting based on how many times that customer has visited the restaurant. Please refer to the customerData object.
+
+The greeting should be different, depending on the name on their reservation.
+
+Case 1 - Unknown customer ( Name is not present in customerData ):
+
+```javascript
+var output = greetCustomer('Terrance');
+console.log(output); // --> 'Welcome! Is this your first time?'
+```
+
+Case 2 - Customer who has visited only once ( 'visits' value is 1 ):
+
+```javascript
+var output = greetCustomer('Joe');
+console.log(output); // --> 'Welcome back, Joe! We're glad you liked us the first time!'
+```
+
+Case 3 - Repeat customer: ( 'visits' value is greater than 1 ):
+
+```javascript
+var output = greetCustomer('Carol');
+console.log(output); // --> 'Welcome back, Carol! So glad to see you again!'
+```
+
+Notes:
+
+- Your function should not alter the customerData object to update the number of visits.
+- Do not hardcode to the exact sample data. This is a BAD IDEA:
+
+```javascript
+if (firstName === 'Joe') {
+  // do something
+}
+```
+
+```javascript
+var customerData = {
+  'Joe': {
+    visits: 1
+  },
+  'Carol': {
+    visits: 2
+  },
+  'Howard': {
+    visits: 3,
+  },
+  'Carrie': {
+    visits: 4
+  }
+};
+
+function greetCustomer(firstName) {
+  if (customerData[firstName] === undefined) {
+      return 'Welcome! Is this your first time?';
+  }
+  if (customerData[firstName].visits === 1) {
+      return `Welcome back, ${firstName}! We're glad you liked us the first time!`;
+  } else {
+      return `Welcome back, ${firstName}! So glad to see you again!`;
+  }
+}
+```
+
+#### A Request From Corporate
+
+Let us walk through the idea for this problem, as it is somewhat more complex than the first sections of this placement challenge. The problem will require you to write two functions. One function will accomplish a task of some kind, and the other function will be an assertion function which can be used to compare your answer with an expected answer.
+
+The first function you will write will be called `generateSampleView`. The input for this function will always be an array of objects, theoretically the result of a call to an API, or database. `generateSampleView` will take this array as its parameter, and return an array of strings based upon conditions that we will describe in a moment. The format of this input array of objects is described below:
+
+```javascript
+var users = [
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "address": {
+      "street": "Victor Plains",
+      "suite": "Suite 879",
+      "city": "Wisokyburgh",
+      "zipcode": "90566-7771",
+      "geo": {
+        "lat": "-43.9509",
+        "lng": "-34.4618"
+      }
+    },
+    "phone": "010-692-6593 x09125",
+    "website": "anastasia.net",
+    "company": {
+      "name": "Deckow-Crist",
+      "catchPhrase": "Proactive didactic contingency",
+      "bs": "synergize scalable supply-chains"
+    }
+  }
+];
+
+
+// generateSampleView
+function generateSampleView(sampleUsers) {
+    let output = [];
+    for (let j = 0; j < sampleUsers.length; j++) {
+        if (sampleUsers[j]["id"] % 2 === 1) {
+            output.push(sampleUsers[j]["email"])
+        } else {
+            output.push(getAddress(sampleUsers[j]["address"]))
+        }
+    }
+    return output;
+}
+
+function getAddress(addressObj) {
+    let address = "";
+    address += addressObj["street"] + ", " + addressObj["suite"] + ", " + addressObj["city"] + ", " + addressObj["zipcode"];
+    return address;
+}
+
+
+// assertArraysEqual
+function assertArraysEqual(actual, expected, testName) {
+    let sameLength = actual.length === expected.length;
+    let sameValue = true;
+    for (let i = 0; i < expected.length; i++) {
+        if (actual[i] !== expected[i]) {
+            sameValue = false;
+            break;
+        }
+    }
+    
+    if (sameLength && sameValue) {
+        console.log(`passed.`)
+    } else {
+        console.log(`failed [${testName}]. Expected ${expected}, but got ${actual}`)
+    }
+}
+
+var actual_1 = generateSampleView(users);
+var expected_1 = ["Sincere@april.biz", "Victor Plains, Suite 879, Wisokyburgh, 90566-7771"];
+assertArraysEqual(actual_1,expected_1,"should display correct sample view.");
+```
 
