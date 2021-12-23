@@ -1133,6 +1133,7 @@ function applySplice(array, index, item1, item2) {
   array.splice(index,2,item1,item2);
   return array;
 }
+```
 
 #### Determining if a value is an Array | Using Array.isArray()
 
