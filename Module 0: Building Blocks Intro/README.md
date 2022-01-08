@@ -2151,7 +2151,7 @@ loopASequenceAgain(3, 7);
 function loopASequenceAgain(start, end) {
   // create a loop which loops from start to end
     // log current value to console
-  for ( value = start; value <= end; value++ ) {
+  for (var value = start; value <= end; value++ ) {
     console.log(value);
   }
 }
@@ -2182,7 +2182,7 @@ loopAnArrayAgain([1, 2, 3, 4, 5]);
 function loopAnArrayAgain(array) {
   // create a loop which iterates over the input array
     // log current array element to the console
-  for ( var i = 0 ; i < array.length ; i++) {
+  for (var i = 0 ; i < array.length ; i++) {
     console.log(array[i]);
   }
 }
