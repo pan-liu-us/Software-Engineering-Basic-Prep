@@ -401,16 +401,20 @@ Given 2 boolean expressions, "or" returns true or false, corresponding to the '|
 - Do not use the || operator.
 - Use ! and && operators instead.
 
-
 ```javascript
 var output = or(true, false);
 console.log(output); // --> true;
 ```
 
-
 ```javascript
+/*
+hints: De Morgan's laws
+!(A && B) ---> !A || !B
+!(A || B) ---> !A && !B
+*/
+
 function or(expression1, expression2) {
-  return !(!expression1 && !expression2);
+  return !(!expression1 && !expression2); 
 }
 ```
 
