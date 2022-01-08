@@ -1966,11 +1966,11 @@ function verifyStock(recipeMinimums, stockTomatoes, stockOnions) {
 var excessTomatoes = stockTomatoes - recipeMinimums.tomatoes
 var excessOnions = stockOnions - recipeMinimums.onions
 
-if ( excessTomatoes < 0 && excessOnions < 0){
+if (excessTomatoes < 0 && excessOnions < 0){
     return 'We need more tomatoes and more onions.';
-} else if (  excessTomatoes < 0 && excessOnions >= 0 ){
+} else if (excessTomatoes < 0 && excessOnions >= 0 ){
     return 'We have enough onions, but need more tomatoes.';
-} else if ( excessTomatoes >= 0 && excessOnions < 0){
+} else if (excessTomatoes >= 0 && excessOnions < 0){
     return 'We have enough tomatoes, but need more onions.';
 } else { 
     return 'We have enough tomatoes and onions. There will be ' + excessTomatoes + ' extra tomato, and ' + excessOnions + ' extra onion.'; 
@@ -2079,7 +2079,7 @@ function loopAnArray(array) {
   // create a loop which iterates over the input array
     // log current array element to the console
     // increment value of index variabl
-  var index = 0
+  var index = 0;
   while (index < array.length) {
     var currentVal = array[index];
     console.log(currentVal);
