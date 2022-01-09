@@ -1092,6 +1092,85 @@ function removeOddValues(obj) {
   }
 }
 ```
+### Objects 6
+
+#### removeArrayValues
+
+Write a function called "removeArrayValues".
+
+Given an object, "removeArrayValues" removes any properties whose values are arrays.
+
+```javascript
+var obj = {
+  a: [1, 3, 4],
+  b: 2,
+  c: ['hi', 'there']
+}
+removeArrayValues(obj);
+console.log(obj); // --> { b: 2 }
+```
+
+```javascript
+function removeArrayValues(obj) {
+  for (var keys in obj) {
+      if (Array.isArray(obj[keys])) {
+          delete obj[keys];
+      }
+  }
+}
+```
+
+#### removeNumberValues
+
+Write a function called "removeNumberValues".
+
+Given an object, "removeNumberValues" removes any properties whose values are numbers.
+
+```javascript
+var obj = {
+  a: 2,
+  b: 'remaining',
+  c: 4
+};
+removeNumberValues(obj);
+console.log(obj); // --> { b: 'remaining' }
+```
+
+```javascript
+function removeNumberValues(obj) {
+  for (var keys in obj) {
+      if (typeof obj[keys] === "number") {
+          delete obj[keys];
+      }
+  }  
+}
+```
+
+#### removeStringValues
+
+Write a function called "removeStringValues".
+
+Given an object, "removeStringValues" removes any properties on the given object whose values are strings.
+
+```javascript
+var obj = {
+  name: 'Sam',
+  age: 20
+}
+removeStringValues(obj);
+console.log(obj); // { age: 20 }
+```
+
+```javascript
+function removeStringValues(obj) {
+  for (var keys in obj) {
+      if (typeof obj[keys] === "string") {
+          delete obj[keys];
+      }
+  }  
+}
+```
+
 
 ### Objects 7
 
