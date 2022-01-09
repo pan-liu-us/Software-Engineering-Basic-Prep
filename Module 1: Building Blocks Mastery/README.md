@@ -2707,6 +2707,7 @@ console.log(output); // --> [1, 3, 1]
 ```
 
 ```javascript
+// Method 1
 function removeElement(array, discarder) {
     for (var i = 0; i < array.length; i++) {
         if (array[i] === discarder) {
@@ -2715,6 +2716,20 @@ function removeElement(array, discarder) {
         }
     }
     return array;
+}
+```
+
+```javascript
+// Method 2
+function removeElement(array, discarder) {
+  var r = [];
+  for (var i = 0; i < array.length; i++) {
+      if (array[i] === discarder) {
+          continue;
+      }
+      r.push(array[i]);
+  }
+  return r;
 }
 ```
 
@@ -2734,6 +2749,7 @@ console.log(output); --> [2, 2]
 ```
 
 ```javascript
+// Method 1
 function keep(array, keeper) {
     for (var i = 0; i < array.length; i++) {
         if (array[i] !== keeper) {
@@ -2742,6 +2758,20 @@ function keep(array, keeper) {
         }
     }
     return array;
+}
+```
+
+```javascript
+// Method 2
+function keep(array, keeper) {
+  var r = [];
+  for (var i = 0; i < array.length; i++) {
+      if (array[i] !== keeper) {
+          continue;
+      }
+      r.push(array[i]);
+  }
+  return r;
 }
 ```
 
