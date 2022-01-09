@@ -3533,14 +3533,28 @@ console.log(output); // --> { a: 1, c: 3 }
 ```
 
 ```javascript
+// Method 1
 function select(arr, obj) {
     var result = {};
-    for (var i = 0; i<arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
         if (obj[arr[i]] !== undefined) {
             result[arr[i]] = obj[arr[i]];
         }
     }
     return result;
+}
+```
+
+```javascript
+// Method 2
+function select(arr, obj) {
+  var r = {};
+  for (var keys in obj) {
+      if (arr.indexOf(keys) !== -1) { // use "if (arr.includes(keys)) {" will also work
+          r[keys] = obj[keys];
+      }
+  }
+  return r;
 }
 ```
 
