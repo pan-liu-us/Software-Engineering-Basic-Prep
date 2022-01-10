@@ -443,7 +443,7 @@ function decorateClassListWithAges(classList) {
     // creates an object for each string in the input array, with an age of 10 or 11
     // returns an array of these objects
     var decoratedClassList=[];
-    for (var i=0;i<classList.length;i++){
+    for (var i = 0;i < classList.length;i++) {
         var currentStudent = {};
         currentStudent.name = classList[i];
         currentStudent.age = getRandomIntInclusive(10,11);
@@ -454,7 +454,7 @@ function decorateClassListWithAges(classList) {
 
 // ASSERTION FUNCTION(S) TO BE USED
 function assertWithinRange(low, high, actual) {
-    if(low <=actual && actual <= high){
+    if(low <= actual && actual <= high) {
     return true;
     } else {
         return false;
@@ -462,17 +462,17 @@ function assertWithinRange(low, high, actual) {
 }
 
 function testDecoratedStudentList(input,output){
-    for (var j = 0; j < input.length;j ++) {
+    for (var j = 0; j < input.length; j++) {
         if (input[j]!==output[j].name) {
             console.log('FAILED: Incorrect name at index:' + j);
-        return;
+            return;
         }
         if (assertWithinRange(10,11,output[j].age) === false) {
             console.log('FAILED: Incorrect age at index:' + j);
-        return;
+            return;
         }
     }
-console.log('passed');
+    console.log('passed');
 }
 
 
