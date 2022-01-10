@@ -420,7 +420,7 @@ var input = [1,2,3,4,5];
 
 // TESTS FOR SUM
 var actualSumResult = sum(input);
-var expectedSumResult = 5;
+var expectedSumResult = 15;
 assertEqual(actualSumResult, expectedSumResult, 'should accurately sum the integers in an array');
 
 ///TEST FOR AVERAGE
