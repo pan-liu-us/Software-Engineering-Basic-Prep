@@ -2812,32 +2812,20 @@ console.log('should log "{}":', result2);
 
 ```javascript
 function countWords(stringOfWords) {
- //if input is empty obj
- if ( stringOfWords === '' ) {
-   // return empty obj
-   return {};
-}
-
-  // create result count obj
-  var counts = {};
-
-  //split the inout string into an array of words
-  var words = stringOfWords.split(' ');
-    //iterate over the array of words
-    for ( var i = 0; i < words.length; i++) {
-      var currentWord = words[i];
-      //check if current word is not in result obj
-      if ( counts[currentWord] === undefined) {
-    //instantiate current word in obj with value of 1
-      counts[currentWord] = 1;
-    //otherwise
-    } else {
-      // increment value of current word in obj by 1
-      counts[currentWord]++;
-    }
+  if (stringOfWords === '') {
+     return {};
   }
-// return the result count obj
-return counts;
+  var counts = {};
+  var words = stringOfWords.split(' ');
+  for (var i = 0; i < words.length; i++) {
+      var currentWord = words[i];
+      if (counts[currentWord] === undefined) {
+          counts[currentWord] = 1;
+      } else {
+          counts[currentWord]++;
+      }
+  }
+  return counts;
 }
 ```
 
