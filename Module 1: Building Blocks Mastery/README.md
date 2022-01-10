@@ -3615,6 +3615,7 @@ Notes:
 - Be sure to familiarize yourself with the "toString" method, as well as the "Number" function.
 
 ```javascript
+// Method 1
 function sumDigits(num) {
     var inputIsNegative = false;
     if (num < 0) {
@@ -3624,7 +3625,7 @@ function sumDigits(num) {
     var total = 0;
     var numString = num.toString();
     var firstValue = Number(numString[0]);
-    for(var i=0; i < numString.length; i++) {
+    for(var i = 0; i < numString.length; i++) {
         total += Number(numString[i]);
     }
     if (inputIsNegative) {
@@ -3633,6 +3634,25 @@ function sumDigits(num) {
     } else {
         return total;
     }
+}
+```
+
+```javascript
+// Method 2
+function sumDigits(num) {
+  absNum = Math.abs(num);
+  var numString =  absNum.toString();
+  var sum = 0;
+  for (var i = 0; i < numString.length; i++) {
+      sum += Number(numString[i]);
+  }
+  
+  if (num < 0) {
+      sum = sum - 2 * Number(numString[0]);
+      return sum;
+  } else {
+      return sum;
+  }
 }
 ```
 
