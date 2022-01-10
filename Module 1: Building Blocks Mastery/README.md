@@ -3680,6 +3680,7 @@ console.log(output); // --> 1
 ```
 
 ```javascript
+// Method 1
 function modulo(num1, num2) {
     if (num1 === 0) {
         return 0;
@@ -3708,6 +3709,35 @@ function modulo(num1, num2) {
     } else {
         return -num1;
     }
+}
+```
+
+```javascript
+// Method 2
+function modulo(num1, num2) {
+  if (num1 === 0) {
+      return 0;
+  }
+  
+  if (num2 === 0) {
+      return NaN;
+  }
+  
+  if (isNaN(num1) || isNaN(num2))  {
+      return NaN;
+  }
+  
+  var absNum1 = Math.abs(num1);
+  var absNum2 = Math.abs(num2);
+  while (absNum1 >= absNum2) {
+      absNum1 -= absNum2;
+  }
+  
+  if (num1 < 0) {
+      return -absNum1;
+  } else {
+      return absNum1;
+  }
 }
 ```
 
@@ -3808,7 +3838,7 @@ function getIndexOf(char, str) {
     for ( var i = 0; i < str.length; i++){
         if (str[i] === char) {
             return i;
-        }
+        } // attention: don't put else here! the else only happens in the event that the iteration has stopped
     }
     return -1;
 }
@@ -3830,6 +3860,17 @@ Notes:
 ```javascript
 var output = getStringLength('hello');
 console.log(output); // --> 5
+```
+
+```javascript
+function getStringLength(string) {
+  var counter = 0;
+  while (string !== "") {
+      string = string.slice(1);
+      counter++;
+  }
+  return counter;
+}
 ```
 
 
@@ -3879,7 +3920,7 @@ console.log(output); // --> 24
 ```javascript
 function computeFactorialOfN(n) {
     var factorial = 1;
-    for (i = 1; i <= n; i++) {
+    for (var i = 1; i <= n; i++) {  // for (var i = n; i >= 1; i--) {
         factorial *= i;
     }
     return factorial;
@@ -3901,7 +3942,7 @@ console.log(output); // --> 'codecodecode'
 function repeatString(string, num) {
     // repeat num times of string
     var result = "";
-    for (i = 1 ; i <= num; i++) {
+    for (var i = 1; i <= num; i++) {
     result += string;
     }
     return result;
@@ -3926,6 +3967,7 @@ console.log(output); // --> 28
 ```
 
 ```javascript
+// Method 1
 function multiply(num1, num2) {
     var resultIsPositive = true;
     if ((num1 > 0 && num2 < 0) || (num1 < 0 && num2 > 0)) {
@@ -3944,6 +3986,25 @@ function multiply(num1, num2) {
     }
 }
 ```
+
+```javascript
+// Method 2
+function multiply(num1, num2) {
+  var absNum1 = Math.abs(num1);
+  var absNum2 = Math.abs(num2);
+  var r = 0;
+  for (var i = 1; i <= absNum2; i++) {
+      r += absNum1;
+  }
+  
+  if ((num1 > 0 && num2 < 0) || (num1 < 0 && num2 > 0)) {
+      return -r;
+  } else {
+      return r;
+  }
+}
+```
+
 
 ### Iteration 6
 
