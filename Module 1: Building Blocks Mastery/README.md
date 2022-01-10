@@ -456,6 +456,7 @@ console.log(output); // --> true
 
 var output = isEitherEvenAndLessThan9(72, 2);
 console.log(output); // --> false
+```
 
 ```javascript
 function isEitherEvenAndLessThan9(num1, num2) {
