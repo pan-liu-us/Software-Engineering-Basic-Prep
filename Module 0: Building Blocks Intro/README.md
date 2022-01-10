@@ -1006,6 +1006,15 @@ var resultArray2 = applyPush(['abc', 'def'], 'ghi');
 console.log('should log ["abc", "def", "ghi"]:', resultArray2);
 ```
 
+```javascript
+function applyPush(array, element) {
+  // add the element to the back of the array
+  // return the array
+  array.push(element);
+  return array;
+}
+```
+
 #### Removing an Element from the back of an Array | Using .pop()
 
 We are going to complete a function that takes in one parameter, an array, removes the last element from the back of the array, and returns the removed element. Your function should create a popped variable, assign it to an expression using the `.pop()` method to remove the last element from the array, then return that popped variable. Below are examples of the code running, assuming that you will have completed the described function: `applyPop`.
