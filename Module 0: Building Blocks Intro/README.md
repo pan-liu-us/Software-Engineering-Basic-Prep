@@ -1595,9 +1595,9 @@ console.log('Should log undefined, because function returned nothing:', result2)
 function isItUndefined(param) {
   // if param is defined (or not undefined)
     // return 'Input is defined'
-    if (param !== undefined){
+  if (param !== undefined) {
     return 'Input is defined';
-    }
+  }
 }
 ```
 
@@ -1617,9 +1617,9 @@ console.log('Should log undefined, because function returned nothing:', result2)
 function fewerApples(apples, oranges) {
   // if there are fewer apples than oranges
     // return 'There are fewer apples than oranges'
-    if ( apples < oranges){
+  if (apples < oranges) {
     return 'There are fewer apples than oranges';
-    }
+  }
 }
 ```
 
@@ -1642,9 +1642,9 @@ console.log('Should log undefined, because function returned nothing:', result3)
 function validLengthPassword(password) {
   // if password length is greater than 4 and less than 15
     // return 'Password length is valid'
-    if(password.length>4  && password.length < 15){
+  if (password.length > 4  && password.length < 15) {
     return "Password length is valid";    
-    }
+  }
 }
 ```
 
@@ -1667,9 +1667,9 @@ console.log('Should log undefined, because function returned nothing:', result3)
 function findAgent(agentList, agentToSearchFor) {
   // if agentToSearchFor is present within agentList
     // return '{agentToSearchFor} is present within Agent list'
-    if (agentList.indexOf(agentToSearchFor) > -1 ){
+  if (agentList.indexOf(agentToSearchFor) > -1) {
     return agentToSearchFor + " is present within Agent list";
-    }
+  }
 }
 ```
 
@@ -1692,10 +1692,10 @@ console.log('Should log undefined, because function returned nothing:', result3)
 function generateReportSummary(reportTotals, teamName) {
   // if teamName's report total is greater than 5
     // return '{teamName} has surpassed goal with reports'
-    var teamTotal = reportTotals[teamName];
-    if(teamTotal > 5){
-        return teamName + ' has surpassed goal with ' + teamTotal +' reports';     
-    }
+  var teamTotal = reportTotals[teamName];
+  if (teamTotal > 5) {
+    return teamName + ' has surpassed goal with ' + teamTotal +' reports';     
+  }
 }
 ```
 
@@ -1727,11 +1727,11 @@ function isItTruthy(param) {
     // return 'Input is truthy'
   // otherwise
     // return 'Input is falsy'
-    if(param){
-        return 'Input is truthy';
-    } else {
-        return 'Input is falsy';
-    }
+  if (param) {
+    return 'Input is truthy';
+  } else {
+    return 'Input is falsy';
+  }
 }
 ```
 
@@ -1759,11 +1759,11 @@ function balancePets(dogs, cats) {
     // return 'number of cats and dogs is acceptable'
   // otherwise
     // return 'number of cats or dogs is not acceptable'
-    if (dogs > 9 && cats < 9){
-        return 'number of cats and dogs is acceptable';
-    } else {
-        return 'number of cats or dogs is not acceptable';
-    }
+  if (dogs > 9 && cats < 9) {
+    return 'number of cats and dogs is acceptable';
+  } else {
+    return 'number of cats or dogs is not acceptable';
+  }
 }
 ```
 
@@ -1785,11 +1785,11 @@ function passwordLongEnough(password) {
     // return 'Password is long enough'
   // otherwise
     // return 'Please enter a password of at least 9 characters'
-    if(password.length > 8){
-        return 'Password is long enough';
-    } else {
-        return 'Please enter a password of at least 9 characters';
-    }
+  if (password.length > 8) {
+    return 'Password is long enough';
+  } else {
+    return 'Please enter a password of at least 9 characters';
+  }
 }
 ```
 
@@ -1811,11 +1811,11 @@ function findIngredient(ingredientList, ingredientToSearchFor) {
     // return '{ingredientToSearchFor} is on the list'
   // otherwise
     // return '{ingredientToSearchFor} is not on the list'
-    if(ingredientList.indexOf(ingredientToSearchFor) > -1){
-        return ingredientToSearchFor + ' is on the list';
-    } else {
-        return ingredientToSearchFor + ' is not on the list';
-    }
+  if (ingredientList.indexOf(ingredientToSearchFor) > -1) {
+    return ingredientToSearchFor + ' is on the list';
+  } else {
+    return ingredientToSearchFor + ' is not on the list';
+  }
 }
 ```
 
@@ -1846,13 +1846,13 @@ function measureRequiredFruit(fruitTotals) {
     // return 'We have enough fruit, with {totalBananas} bananas, and {totalStrawberries} strawberries'
   // otherwise
     // return 'We do not have enough of both fruits'
-    var totalBananas = fruitTotals.bananas;
-    var totalStrawberries = fruitTotals.strawberries;
-    if (totalBananas > 3 && totalStrawberries >10) {
-        return 'We have enough fruit, with ' + totalBananas + ' bananas, and ' + totalStrawberries +' strawberries';
-    } else {
-        return 'We do not have enough of both fruits';
-    }
+  var totalBananas = fruitTotals.bananas;
+  var totalStrawberries = fruitTotals.strawberries;
+  if (totalBananas > 3 && totalStrawberries >10) {
+    return 'We have enough fruit, with ' + totalBananas + ' bananas, and ' + totalStrawberries +' strawberries';
+  } else {
+    return 'We do not have enough of both fruits';
+  }
 }
 ```
 
@@ -1886,15 +1886,15 @@ function player1Choice(choice) {
     // return "Player 1 chose scissors"
   // otherwise
     // return "Player 1 has chosen poorly!"
-    if (choice === 'rock'){
-        return "Player 1 chose " + choice;
-    } else if (choice === 'paper'){
-        return "Player 1 chose " + choice;
-    } else if (choice === 'scissors'){
-         return "Player 1 chose " + choice;
-    } else {
-        return "Player 1 has chosen poorly!";
-    }
+  if (choice === 'rock') {
+    return "Player 1 chose " + choice;
+  } else if (choice === 'paper') {
+    return "Player 1 chose " + choice;
+  } else if (choice === 'scissors') {
+     return "Player 1 chose " + choice;
+  } else {
+    return "Player 1 has chosen poorly!";
+  }
 }
 ```
 
@@ -1929,15 +1929,15 @@ function selectShirtSize(choice) {
     // return 'You should select a size L'
   // otherwise
     // return 'You should select a different shirt'
-    if (choice >= 20 && choice <30) {
-       return 'You should select a size S';
-    } else if (choice >= 30 && choice <40){
-       return 'You should select a size M';
-    } else if (choice >= 40 && choice <50){
-       return 'You should select a size L';
-    } else {
-       return 'You should select a different shirt';
-    }
+  if (choice >= 20 && choice <30) {
+   return 'You should select a size S';
+  } else if (choice >= 30 && choice <40) {
+   return 'You should select a size M';
+  } else if (choice >= 40 && choice <50) {
+   return 'You should select a size L';
+  } else {
+   return 'You should select a different shirt';
+  }
 }
 ```
 
@@ -1972,17 +1972,17 @@ function verifyStock(recipeMinimums, stockTomatoes, stockOnions) {
     // return 'We have enough tomatoes, but need more onions.'
   // otherwise
     // return 'We have enough tomatoes and onions. There will be {excessTomatoes} extra tomato, and {excessOnions} extra onion.'
-var excessTomatoes = stockTomatoes - recipeMinimums.tomatoes
-var excessOnions = stockOnions - recipeMinimums.onions
-
-if (excessTomatoes < 0 && excessOnions < 0){
+  var excessTomatoes = stockTomatoes - recipeMinimums.tomatoes
+  var excessOnions = stockOnions - recipeMinimums.onions
+  if (excessTomatoes < 0 && excessOnions < 0) {
     return 'We need more tomatoes and more onions.';
-} else if (excessTomatoes < 0 && excessOnions >= 0 ){
+  } else if (excessTomatoes < 0 && excessOnions >= 0) {
     return 'We have enough onions, but need more tomatoes.';
-} else if (excessTomatoes >= 0 && excessOnions < 0){
+  } else if (excessTomatoes >= 0 && excessOnions < 0) {
     return 'We have enough tomatoes, but need more onions.';
-} else { 
+  } else { 
     return 'We have enough tomatoes and onions. There will be ' + excessTomatoes + ' extra tomato, and ' + excessOnions + ' extra onion.'; 
+  }
 }
 ```
 
