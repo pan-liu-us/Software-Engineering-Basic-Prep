@@ -443,10 +443,11 @@ function decorateClassListWithAges(classList) {
     // creates an object for each string in the input array, with an age of 10 or 11
     // returns an array of these objects
     var decoratedClassList=[];
-    for (var i = 0;i < classList.length;i++) {
-        var currentStudent = {};
-        currentStudent.name = classList[i];
-        currentStudent.age = getRandomIntInclusive(10,11);
+    for (var i = 0; i < classList.length;i++) {
+        var currentStudent = {
+        name: classList[i],
+        age: getRandomIntInclusive(10,11)
+        }
         decoratedClassList.push(currentStudent);
     }
     return decoratedClassList;
