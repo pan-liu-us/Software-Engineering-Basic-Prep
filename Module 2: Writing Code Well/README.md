@@ -660,6 +660,10 @@ Similarly to some of the previous problems in this section, there is a concept h
 ```javascript
 // FUNCTION DEFINITIONS
 function findLongestPalindrome(sentence) {
+    // split sentence into words
+    // iterate words and collect the palindromes
+    // sort the list of palindromes by word length
+    // return the largest item in the sorted list
     var words = sentence.split(' ');
     var palindromes = [];
     for (var i = 0; i < words.length; i++) {
@@ -673,15 +677,11 @@ function findLongestPalindrome(sentence) {
 }
 
 function reverseString(string) {
-    var splitString = string.split('');
-    var reversedSplitString = splitString.reverse();
-    var reversedString = reversedSplitString.join('');
-    return reversedString;
+    return string.split("").reverse().join("");
 }
 
 function isPalindrome(word) {
-    word = word.toLowerCase();
-    return word === reverseString(word);
+  return word === reverseString(word);
 }
 
 function sortAscendingByLength(a, b) {
