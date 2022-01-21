@@ -681,16 +681,11 @@ function reverseString(string) {
 }
 
 function isPalindrome(word) {
-  return word === reverseString(word);
+    return word === reverseString(word);
 }
 
 function sortAscendingByLength(a, b) {
-    if (a.length > b.length) {
-        return 1;
-    } else if (a.length < b.length) {
-        return -1;
-    } 
-    return 0;
+    return a.length - b.length;
 }
 
 // ASSERTION FUNCTION(S) TO BE USED
@@ -745,6 +740,18 @@ var actualLongest = findLongestPalindrome(sentence);
 var expectedLongest = 'hannah';
 
 assertEqual(actualLongest, expectedLongest, 'should return the longest palindrome in an input sentence');
+```
+
+The compare function has the following form:
+```
+function sortAscendingByLength(a, b) {
+    if (a.length > b.length) {
+        return 1;
+    } else if (a.length < b.length) {
+        return -1;
+    } 
+    return 0;
+}
 ```
 
 ## Fashion Inventory Problems
