@@ -806,19 +806,17 @@ Hint: the return value is a string.
 ```javascript
 // FUNCTION DEFINITIONS
 function renderInventory(inventory) {
-  // create flat list string
-  var flatList = "";
-  // iterate over the inventory array
-  for (var i = 0; i < inventory.length; i++) {
-    // assign a variable to be the current designer object
-    var designerObject = inventory[i];
-    // iterate over the current designer object's shoes array
-    for (var j = 0; j < designerObject.shoes.length; j++) {
-      // add to our flat list: designer name, shoe name, shoe price, and a newline symbol
-      flatList += designerObject.name + ', ' + designerObject.shoes[j].name + ', ' + designerObject.shoes[j].price + '\n';
-    }
+  var flatList = '';
+  for (var i = 0; i < inventory.length; i++) { 
+    var designerObject = inventory[i]; 
+    var brand = designerObject.name;
+    var shoes = designerObject.shoes;
+    for (var j = 0; j < shoes.length; j++) {
+      var shoeName = shoes[j].name;
+      var price = shoes[j].price;
+      flatList += `${brand}, ${shoeName}, ${price}\n`;
+    }   
   }
-  // return flat list string
   return flatList;
 }
 
