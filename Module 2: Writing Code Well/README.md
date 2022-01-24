@@ -877,47 +877,29 @@ There are, like all of the challenges in this course, tests attached to these ex
 ```javascript
 // FUNCTION DEFINITIONS
 function calculateAveragePricePerDesigner(inventory) {
-  // create result object in described format
-  var averageObject = {
+  var output = {
     designers: []
-  };
-  // iterate over the inventory of designer objects
+  }
+  
   for (var i = 0; i < inventory.length; i++) {
-    // save current value as readable variable (designerObject)
-    var designerObject = inventory[i];
-    // save current value's shoes' property as readable variable (shoesArray)
-    var shoesArray = designerObject.shoes;
-    // create price object for current designer
-    var priceObject = {
-      // first property is just name of current designer
-      name: designerObject.name,
-      // average is set to a function that we define below, function should return the average price of a shoes array
-      averagePrice: averagePrice(shoesArray)
+    var designerObj = inventory[i];
+    var shoeArray = designerObj.shoes;
+    var innerObj = {
+      name: designerObj.name,
+      averagePrice: averagePrice(shoeArray)
     }
-    // add price object to result object
-    averageObject.designers.push(priceObject);
+    output.designers.push(innerObj);
   }
-  // return result object
-  return averageObject;
+  
+  return output;
 }
 
-// define a function that should return the average price of a shoes array
-function averagePrice(shoesArray) {
-  // call another function that will sum up the prices in a shoes array, divide it by length of same array
-  return sum(shoesArray) / shoesArray.length;
-}
-
-// define a function that should return the sum of the prices of a shoes array
-function sum(shoesArray) {
-  // create sum variable
+function averagePrice(shoeArray) {
   var sum = 0;
-  // iterate over shoes array
-  for (var j = 0; j < shoesArray.length; j++) {
-    // add to the sum the price of each shoe
-    sum += shoesArray[j].price;
+  for (var j = 0; j < shoeArray.length; j++) {
+    sum += shoeArray[j].price;
   }
-  // return sum variable
-  return sum;
+  return sum / shoeArray.length;
 }
 
 // ASSERTION FUNCTION(S) TO BE USED
