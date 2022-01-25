@@ -15,6 +15,7 @@ function flipPairs(input){
   var flippedInput = "";
   // iterate over the string input, incrementing by 2
   for (var i = 0; i < input.length; i += 2) {
+    // if length of input is odd 
     // check if next character is undefined
     if (input[i + 1] === undefined) {
       // grab currrent character and add to result
@@ -22,6 +23,7 @@ function flipPairs(input){
       // break - end the for loop
       break;
     }
+    // if length of input is even
     // grab next character add to result
     flippedInput += input[i + 1];
     // grab current character and add to the result
