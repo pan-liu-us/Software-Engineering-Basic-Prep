@@ -64,7 +64,7 @@ console.log(draw); // -> 'Draw!'
 ```
 
 ```javascript
-# Method 1:
+// Method 1:
 function checkWinner(array) {
     for (let i = 0; i < array.length; i++) {
         if (array[i] === "black" && array[i + 1] === "black" && array[i + 2] === "black" && array[i + 3] === "black") {
@@ -78,7 +78,7 @@ function checkWinner(array) {
 ```
 
 ```javascript
-# Method 2:
+// Method 2:
 function checkWinner(array) {
     let redWins = /red,red,red,red,?/;
     let blackWins = /black,black,black,black,?/;
