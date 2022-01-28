@@ -368,7 +368,7 @@ console.log(splitPairs("abcd")); // returns [ 'ab', 'cd' ]
 console.log(splitPairs("abcde")); // returns [ 'ab', 'cd', 'e_' ]
 ```
 
-Highest Scoring Word
+#### Highest Scoring Word
 
 Given a string of words, you need to find the highest scoring word.
 
