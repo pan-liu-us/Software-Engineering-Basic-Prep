@@ -3274,7 +3274,7 @@ You should be familiar with the "concat" method for this problem.
 function joinArrayOfArrays(arr) {
     var result = [];
     for(var i = 0;i < arr.length; i++){
-        result = result.concat(arr[i]);
+        result = result.concat(arr[i]); // don't forget result =
     }
     return result;
 }
