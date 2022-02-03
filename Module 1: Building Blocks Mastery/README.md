@@ -3790,7 +3790,7 @@ function modulo(num1, num2) {
     if (isNaN(num2) || isNaN(num1)) {
         return NaN;
     }
-    // create a resultIsPositive boolean flog
+    // create a resultIsPositive boolean flag
     var resultIsPositive = true;
     if (num1 < 0) {
         resultIsPositive = false;  
@@ -3798,7 +3798,7 @@ function modulo(num1, num2) {
     // make both num1 and num2 positive versions
     num1 = Math.abs(num1);
     num2 = Math.abs(num2);
-    // reassign num1 ri be num1 - num2, until num1 < num2
+    // reassign num1 to be num1 - num2, until num1 < num2
     while (num1 >= num2) {
         num1 = num1 - num2;
     }
