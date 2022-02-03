@@ -2955,6 +2955,7 @@ console.log(output); // --> [1, 3, 5]
 ```
 
 ```javascript
+// method 1
 function filterOddElements(arr) {
     var oddElements = [];
     for (var i = 0; i < arr.length; i++) {
@@ -2963,6 +2964,12 @@ function filterOddElements(arr) {
         }
     }
     return oddElements;
+}
+
+// method 2
+function filterOddElements(arr) {
+  let oddElements = arr.filter(n => n % 2 === 1)
+  return oddElements;
 }
 ```
 
@@ -3008,6 +3015,7 @@ console.log(output); // --> [2, 4, 6]
 ```
 
 ```javascript
+// method 1
 function filterEvenElements(arr) {
     var evenElements = [];
     for (var i = 0; i < arr.length; i++) {
@@ -3016,6 +3024,12 @@ function filterEvenElements(arr) {
         }
     } 
     return evenElements;
+}
+
+// method 2
+function filterEvenElements(arr) {
+  var evenElements = arr.filter(n => n % 2 === 0);
+  return evenElements;
 }
 ```
             
@@ -3035,6 +3049,7 @@ console.log(output); // --> 3
 ···
 
 ```javascript
+// method 1
 function getLengthOfShortestElement(arr) {
     if (arr.length === 0){
         return 0;
@@ -3046,6 +3061,15 @@ function getLengthOfShortestElement(arr) {
         }
     }
     return shortest.length;
+}
+
+// method 2
+function getLengthOfShortestElement(arr) {
+  if (arr.length === 0) {
+      return 0;
+  }
+  let sortedArr = arr.sort((a,b) => a.length - b.length);
+  return sortedArr[0].length;
 }
 ···
 
@@ -3066,6 +3090,7 @@ console.log(output); // --> 'three'
 ```
 
 ```javascript
+// method 1
 function getLongestElement(arr) {
     if (arr.length === 0) {
         return "";
@@ -3077,6 +3102,14 @@ function getLongestElement(arr) {
         }
     }
     return longest;
+}
+
+// method 2
+function getLongestElement(arr) {
+  if (arr.length === 0) {
+      return '';
+  }
+  return arr.sort((a,b) => a.length - b.length).pop();
 }
 ```
 
@@ -3098,6 +3131,7 @@ console.log(output); // --> 1
 ```
 
 ```javascript
+// method 1
 function findSmallestElement(arr) {
     if (arr.length === 0){
         return 0;
@@ -3109,6 +3143,14 @@ function findSmallestElement(arr) {
         }
     }
     return smallest;
+}
+
+// method 2 
+function findSmallestElement(arr) {
+    if (arr.length === 0) {
+        return 0;
+    }
+    return arr.sort((a,b) => a - b).shift();
 }
 ```
 
@@ -3128,6 +3170,7 @@ var output = findShortestElement(['a', 'two', 'three']);
 console.log(output); // --> 'a'
 
 ```javascript
+// method 1
 function findShortestElement(arr) {
     if (arr.length === 0) {
         return "";
@@ -3139,6 +3182,14 @@ function findShortestElement(arr) {
         }
     }
     return shortest;
+}
+
+// method 2
+function findShortestElement(arr) {
+    if (arr.length === 0) {
+        return '';
+    }
+    return arr.sort((a,b) => a.length - b.length).shift();
 }
 ```
 
@@ -3160,6 +3211,7 @@ console.log(output); // --> 8;
 ····
 
 ```javascript
+// method 1
 function getLargestElement(arr) {
     if (arr.length === 0) {
         return 0;
@@ -3171,6 +3223,14 @@ function getLargestElement(arr) {
         }
     }
     return largest;
+}
+
+// method 2
+function getLargestElement(arr) {
+    if (arr.length === 0) {
+        return 0;
+    }
+    return arr.sort((a,b) => a - b).pop();
 }
 ```
 
@@ -3198,7 +3258,7 @@ function computeSumOfAllElements(arr) {
 ### Array Methods 14
 
 #### joinArraysOfArrays
-Submitted on 11/12/2021
+
 Write a function called "joinArrayOfArrays".
 
 Given an array of arrays, "joinArrayOfArrays" returns a single array containing the elements of the nested arrays.
@@ -3213,7 +3273,7 @@ You should be familiar with the "concat" method for this problem.
 ```javascript
 function joinArrayOfArrays(arr) {
     var result = [];
-    for(var i = 0;i <arr.length; i++){
+    for(var i = 0;i < arr.length; i++){
         result = result.concat(arr[i]);
     }
     return result;
