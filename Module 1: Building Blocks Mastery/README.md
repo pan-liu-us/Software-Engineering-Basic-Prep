@@ -2927,12 +2927,19 @@ console.log(output); // --> [1, 4, 9]
 ```
 
 ```javascript
+// method 1
 function squareElements(arr) {
     var squared = [];
     for (var i = 0; i < arr.length; i++) {
         squared.push(arr[i] ** 2);
     }
     return squared;
+}
+
+// method 2
+function squareElements(arr) {
+  let squared = arr.map(num => num ** 2)
+  return squared;
 }
 ```
 
