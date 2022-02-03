@@ -1059,12 +1059,19 @@ console.log(output); // --> 3
 ```
 
 ```javascript
+// method 1
 function countNumberOfKeys(obj) {
   var count = 0;
   for (var key in obj) {
       count += 1;
   }
   return count;
+}
+
+// method 2
+function countNumberOfKeys(obj) {
+  let keys = Object.keys(obj);
+  return keys.length;
 }
 ```
 
