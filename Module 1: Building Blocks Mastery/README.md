@@ -507,6 +507,7 @@ console.log(output); // --> 1
 ```
 
 ```javascript
+// method 1
 function findMinLengthOfThreeWords(word1, word2, word3) {
   var array = [word1, word2, word3];
   var minLength = word1.length;
@@ -516,6 +517,20 @@ function findMinLengthOfThreeWords(word1, word2, word3) {
       }
   }
   return minLength;
+}
+
+// method 2
+function findMinLengthOfThreeWords(word1, word2, word3) {
+  let array = [word1, word2, word3];
+  let newArr = array.map(word => word.length);
+  return newArr.sort().shift();
+}
+
+// method 3
+function findMinLengthOfThreeWords(word1, word2, word3) {
+  let array = [word1, word2, word3];
+  array.sort((a,b) => a.length - b.length); 
+  return array[0].length;
 }
 ```
 
