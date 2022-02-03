@@ -546,6 +546,7 @@ console.log(output); // --> 3
 ```
 
 ```javascript
+// method 1
 function findMaxLengthOfThreeWords(word1, word2, word3) {
   var array = [word1, word2, word3];
   var maxLength = word1.length;
@@ -555,6 +556,14 @@ function findMaxLengthOfThreeWords(word1, word2, word3) {
       }
   }
   return maxLength;
+}
+
+// method 2
+function findMaxLengthOfThreeWords(word1, word2, word3) {
+  // your code here
+  var array = [word1, word2, word3];
+  array.sort((a,b) => b.length - a.length);
+  return array[0].length;
 }
 ```
 
