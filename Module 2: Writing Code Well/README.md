@@ -956,7 +956,6 @@ function calculateAveragePricePerDesigner(inventory) {
   }
 
   for (var i = 0; i < inventory.length; i++) {
-    var innerObj = {}
     var designerName = inventory[i].name;
     var shoeArray = inventory[i].shoes;
     var priceArray = shoeArray.map(s => s.price);
@@ -965,8 +964,10 @@ function calculateAveragePricePerDesigner(inventory) {
       sum += priceArray[j];
     }
     var avgPrice = sum / priceArray.length;
-    innerObj['name'] = designerName;
-    innerObj['averagePrice'] = avgPrice;
+    var innerObj = {
+      name: designerName,
+      averagePrice: avgPrice
+    }
     r.designers.push(innerObj); 
   }
   
