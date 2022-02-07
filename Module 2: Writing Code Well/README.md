@@ -948,6 +948,32 @@ var expectedOuput = {
 assertObjectsEqual(actualOutput, expectedOuput, 'should return properly formatted object');
 ```
 
+```javascript
+// method 2
+function calculateAveragePricePerDesigner(inventory) {
+  var r = {
+    designers: []
+  }
+
+  for (var i = 0; i < inventory.length; i++) {
+    var innerObj = {}
+    var designerName = inventory[i].name;
+    var shoeArray = inventory[i].shoes;
+    var priceArray = shoeArray.map(s => s.price);
+    var sum = 0;
+    for (var j = 0; j < priceArray.length; j++) {
+      sum += priceArray[j];
+    }
+    var avgPrice = sum / priceArray.length;
+    innerObj['name'] = designerName;
+    innerObj['aveagePrice'] = avgPrice;
+    r.designers.push(innerObj); 
+  }
+  
+  return r;
+}
+```
+
 ### Part C
 
 Your task is to find all of the shoes with "black" in the name. Your function should filter these shoes, and return them in a "flat list" similarly to Part A. Here is an example of the console output:
