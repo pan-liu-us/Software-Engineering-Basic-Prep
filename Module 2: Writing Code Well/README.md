@@ -966,7 +966,7 @@ function calculateAveragePricePerDesigner(inventory) {
     }
     var avgPrice = sum / priceArray.length;
     innerObj['name'] = designerName;
-    innerObj['aveagePrice'] = avgPrice;
+    innerObj['averagePrice'] = avgPrice;
     r.designers.push(innerObj); 
   }
   
