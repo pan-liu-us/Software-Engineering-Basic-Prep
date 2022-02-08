@@ -426,6 +426,31 @@ function highestScoringWord(string) {
 console.log(highestScoringWord("ab bc ac")); // returns bc
 ```
 
+```javascript
+//method 2
+function highestScoringWord(string) {
+  var words = string.split(' ');
+  var highest = {
+    score: countScore(words[0]),
+    word: words[0]
+  }
+  for (var i = 0; i < words.length; i++) {
+    if (countScore(words[i]) > highest.score) {
+      highest.score = countScore(words[i]);
+      highest.word = words[i];
+    }
+  }
+  return highest.word;
+}
+
+function countScore(string) {
+  var score = 0;
+  for (var j = 0; j < string.length; j++) {
+    score += string.charCodeAt(j) - 96
+  }
+  return score;
+}
+```
 #### Extract a Domain Name
 
 Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
