@@ -188,6 +188,23 @@ var expected_2 =  2; //Second number is even, while the rest of the numbers are 
 assertEqual(actual_2, expected_2, 'should work with sole even number');
 ```
 
+```javascript
+//method 2
+function detectOutlierValue(stringOfNums) {
+  var numbers = stringOfNums.split(' ');
+  var odds = numbers.filter(n => n % 2 === 1);
+  var evens = numbers.filter(n => n % 2 === 0);
+  if (odds.length === 1) {
+    return numbers.indexOf(odds[0]) + 1;
+  } else {
+    return numbers.indexOf(evens[0]) + 1;
+  }
+}
+
+console.log(detectOutlierValue("1 10 1 1")); //2
+console.log(detectOutlierValue("2 4 7 8 10")); //3
+```
+
 #### Transpose
 
 ```javascript
