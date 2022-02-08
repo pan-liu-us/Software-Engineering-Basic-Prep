@@ -368,6 +368,30 @@ console.log(splitPairs("abcd")); // returns [ 'ab', 'cd' ]
 console.log(splitPairs("abcde")); // returns [ 'ab', 'cd', 'e_' ]
 ```
 
+```javascript
+//method 2
+function splitPairs(input) {
+  var letters = input.split('');
+  var output = [];
+
+  if(letters.length === 0) {
+      return [];
+  }
+
+  for (var i = 0; i < letters.length; i+=2) {
+    var sliced = letters.slice(i, i+2).join('');
+    output.push(sliced);
+  }
+
+  if (letters.length % 2 === 0) {  
+    return output;
+  } else {
+    output[output.length - 1] = output[output.length - 1]  + '_';
+    return output;
+  }
+}
+```
+
 #### Highest Scoring Word
 
 Given a string of words, you need to find the highest scoring word.
